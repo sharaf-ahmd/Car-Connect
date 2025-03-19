@@ -7,7 +7,7 @@ exports.newProduct=async(req,res,next)=>{
     let BASE_URL = process.env.BACKEND_URL;    
     if(req.files.length > 0) {
         req.files.forEach( file => {
-            let url = `${BASE_URL}/uploads/product/${file.originalname}`;
+            let url = `${BASE_URL}/uploads/MarketUploads/Product/${file.originalname}`;
             images.push({ image: url })
         })
     }
@@ -45,7 +45,7 @@ exports.updateProducts=async(req,res,next)=>{
     let BASE_URL = process.env.BACKEND_URL;    
     if(req.files.length > 0) {
         req.files.forEach( file => {
-            let url = `${BASE_URL}/uploads/product/${file.originalname}`;
+            let url = `${BASE_URL}/uploads/MarketUploads/Product/${file.originalname}`;
             images.push({ image: url })
         })
     }
