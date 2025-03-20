@@ -1,6 +1,8 @@
 import {BrowserRouter as Router,Routes,Route} from 'react-router-dom'
 import {HelmetProvider} from 'react-helmet-async'
 import Home from './components/Home.jsx'
+import Header from './components/Header.jsx'
+import Footer from './components/Footer.jsx'
 import './App.css'
 
 function App() {
@@ -9,7 +11,7 @@ function App() {
   return (
     <Router>
       <HelmetProvider>
-        
+        <Header/>
         <Routes>
           {/* CarRepair routes */}
         </Routes>
@@ -30,7 +32,7 @@ function App() {
         <Routes>
           {/* Towing routes */}
         </Routes>
-
+        <Footer />
       </HelmetProvider>
     </Router>
   )
