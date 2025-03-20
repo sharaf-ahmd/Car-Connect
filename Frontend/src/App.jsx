@@ -8,7 +8,6 @@ function App() {
 
   return (
     <Router>
-      <div className='container'>
       <HelmetProvider>
         
         <Routes>
@@ -33,7 +32,6 @@ function App() {
         </Routes>
 
       </HelmetProvider>
-      </div>
     </Router>
   )
 }
