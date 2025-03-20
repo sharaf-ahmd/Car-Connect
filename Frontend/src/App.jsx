@@ -1,6 +1,6 @@
 import {BrowserRouter as Router,Routes,Route} from 'react-router-dom'
 import {HelmetProvider} from 'react-helmet-async'
-import Home from './Market/Home'
+import Home from './components/Home.jsx'
 import './App.css'
 
 function App() {
@@ -8,6 +8,7 @@ function App() {
 
   return (
     <Router>
+      <div className='container'>
       <HelmetProvider>
         
         <Routes>
@@ -32,6 +33,7 @@ function App() {
         </Routes>
 
       </HelmetProvider>
+      </div>
     </Router>
   )
 }
