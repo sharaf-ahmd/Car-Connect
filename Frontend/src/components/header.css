@@ -25,7 +25,7 @@ background: var(--black);
 }
 .container{
     max-width: 1250px;
-    margin: 25px auto 20px auto;
+    margin: 25px auto 0px auto;
     
 }
 /*nav start*/
@@ -97,10 +97,13 @@ font-style: normal;
 /*footer start*/
 .footerContainer{
   background: var(--darkgrey);
-  margin-top: 10px;
+  
   border-radius:6px;
-  padding: 10px;
+  max-width: 1250px;
+  margin: 10px auto 20px auto;
 }
+
+    
 .footer{
   
   display: flex;
@@ -195,8 +198,15 @@ font-style: normal;
     
   .container{
       max-width: 360px;
-      margin: 15px auto 20px auto;
+      margin: 15px auto 0px auto;
       
+  }
+  .footerContainer{
+    background: var(--darkgrey);
+    
+    border-radius:6px;
+    max-width: 360px;
+    margin: 10px auto 20px auto;
   }
   
   .nav{
@@ -264,9 +274,17 @@ font-style: normal;
    
   .container{
       max-width: 330px;
-      margin: 15px auto 20px auto;
+      margin: 15px auto 0px auto;
       
   }
+  .footerContainer{
+    background: var(--darkgrey);
+    
+    border-radius:6px;
+    max-width: 330px;
+    margin: 10px auto 20px auto;
+  }
+  
   
 /*footer start*/
 

@@ -22,7 +22,7 @@ const Header = () => {
   }
 
   return (
-    <>
+    <div className='container'>
       <div className="nav">
             
             <img  className="logo" src="/MarketImages/carconnect.png" alt="logo"/>
@@ -72,7 +72,7 @@ const Header = () => {
             </ul>
            </div>:<></>
         }
-        </>
+        </div>
   )
 }
 
