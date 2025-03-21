@@ -12,6 +12,8 @@ import Shop from './Market/Shop.jsx'
 import { loadUser } from './Profile/actions/userActions.jsx'
 import React,{useEffect} from 'react'
 import store from './store.jsx'
+import AddProduct from './Market/NewProduct.jsx'
+import ProtectedRoute from './route/protectedRoute.jsx'
 
 function App() {
   useEffect(()=>{
@@ -35,6 +37,7 @@ function App() {
           {/* Market routes */}
           <Route path="/" element={<Home/>}/>
           <Route path="/shop" element={<Shop/>}/>
+          <Route path="/new/product" element={<ProtectedRoute isSupplier={true}><AddProduct/></ProtectedRoute>}/>
         </Routes>
 
         <Routes>
