@@ -44,7 +44,44 @@ const productSlice=createSlice({
                 ...state,
                 error:null,
             }
-        }
+        },
+        productRequest(state, action){
+            return {
+                loading: true
+            }
+        },
+        productSuccess(state, action){
+            return {
+                loading: false,
+                product: action.payload.product
+                
+            }
+        },
+        productFail(state, action){
+            return {
+                loading: false,
+                error:  action.payload
+            }
+        },
+        adminProductRequest(state, action){
+            return {
+                loading: true
+            }
+        },
+        adminProductSuccess(state, action){
+            return {
+                loading: false,
+                products: action.payload.products
+                
+            }
+        },
+        adminProductFail(state, action){
+            return {
+                loading: false,
+                error:  action.payload
+            }
+        },
+
     }
 })
 const {actions,reducer}=productSlice;
@@ -53,7 +90,13 @@ export const{
     newProductRequest,
     newProductSuccess,
     clearProductCreated,
-    clearError
+    clearError,
+    productFail,
+    productRequest,
+    productSuccess,
+    adminProductFail,
+    adminProductRequest,
+    adminProductSuccess,
 }=actions;
 
 export default reducer;
