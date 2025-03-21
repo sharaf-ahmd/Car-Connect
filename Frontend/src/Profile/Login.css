@@ -1,0 +1,151 @@
+
+/*login start*/
+.login{
+    padding-top: 100px;
+    background: var(--darkgrey);
+    border-radius:6px;
+    padding-bottom: 100px;
+  }
+  
+  .form-div{
+    max-width: 320px;
+    margin: 20px auto 20px auto;
+    border: 1px solid var(--white);
+    border-radius: 6px;
+    padding: 30px;
+  }
+  .label{ 
+    font-family: "Work Sans", serif;
+    font-optical-sizing: auto;
+    font-weight:500;
+    font-style: normal;
+    color: var(--white);
+    font-size: 20px;
+  }
+  input{
+    border: 1px solid var(--white);
+    padding: 10px;
+    border-radius: 6px;
+    width: 300px;
+    margin-top: 10px;
+    font-family: "Work Sans", serif;
+    font-optical-sizing: auto;
+    font-weight:400;
+    font-style: normal;
+    color: var(--darkgrey);
+    font-size: 17px;
+  }
+  .submit{
+    width: 320px;
+    color: var(--white);
+    background: var(--lightgrey);
+    border: none;
+  }
+  .submit:hover{
+    background: var(--red);
+  }
+  .login-title{
+    font-family: "Work Sans", serif;
+    font-optical-sizing: auto;
+    font-weight:500;
+    color: var(--white);
+    font-size: 35px;
+    text-align: center;
+    font-style:normal;
+  }
+  .forgot{
+    margin-top: 20px;
+    color: var(--white);
+    margin-left: 170px;
+    font-family: "Work Sans", serif;
+    font-optical-sizing: auto;
+    font-weight:500;
+  }
+  .forgot:hover{
+    color: var(--red);
+  }
+  .dont{
+    margin-top: 10px;
+    color: var(--white);
+    margin-left: 125px;
+    font-family: "Work Sans", serif;
+    font-optical-sizing: auto;
+    font-weight:500;
+  }
+  .dont:hover{
+    color: var(--red);
+  }
+  /*login end*/
+
+/*register start*/
+.register{
+  
+    padding-top: 40px;
+    background: var(--darkgrey);
+    border-radius: 6px;
+    padding-bottom: 100px;
+  }
+  /*register end*/
+  
+
+  @media screen and (max-width:450px){
+    
+    /*login start*/
+        
+    .login{
+        padding-top: 60px;
+        padding-bottom: 100px;
+    }
+  
+    .form-div{
+        max-width: 280px;
+    }
+    .label{ 
+        font-size: 18px;
+    }
+    input{
+        width: 260px;
+        font-size: 15px;
+    }
+    .submit{
+        width: 282px;
+    }
+    .login-title{
+        font-size: 32px;
+    }
+    .forgot{
+        margin-left: 100px;
+    }
+    .dont{
+        margin-left: 56px;
+    }
+    /*login end*/
+    
+    /*register start*/
+    .register{
+      
+        padding-top: 30px;
+    }
+    /*register end*/
+    
+    
+  }
+
+
+  @media screen and (max-width:376px){
+    
+    /*login start*/
+    .form-div{
+        max-width: 250px;
+    }
+  
+    input{
+        width: 235px;
+    }
+    .submit{
+        width: 258px;
+    }
+    /*login end*/
+    
+  }
+  

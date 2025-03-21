@@ -11,6 +11,9 @@ import {
     supplierRegisterFail,
     supplierRegisterRequest,
     supplierRegisterSuccess,
+    loadUserFail,
+    loadUserRequest,
+    loadUserSuccess
 } from '../slice/userSlice';
 
 import axios from 'axios';
@@ -62,5 +65,15 @@ export const logout=async(dispatch)=>{
         dispatch(logoutSuccess())
     } catch (error) {
         dispatch(logoutFail(error))
+    }
+}
+//load user details
+export const loadUser=async(dispatch)=>{
+    try {
+        dispatch(loadUserRequest())
+        const {data} =await axios.get('/api/myprofile')
+        dispatch(loadUserSuccess(data))
+    } catch (error) {
+        dispatch(loadUserFail(error.response.data.message))
     }
 }

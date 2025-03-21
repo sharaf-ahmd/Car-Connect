@@ -45,23 +45,23 @@ const Header = () => {
         {
             menu?<div id="navmenu" className="navmenu">
             <ul>
-             <Link to="/" class="navmenus" onClick={toggle}><li>Home</li></Link>
+             <Link to="/" className="navmenus" onClick={toggle}><li>Home</li></Link>
              
-             <Link to="/" class="navmenus" onClick={toggle}><li>About Us</li></Link>
-             <Link to="/" class="navmenus" onClick={toggle}><li>Contact Us</li></Link>
+             <Link to="/" className="navmenus" onClick={toggle}><li>About Us</li></Link>
+             <Link to="/" className="navmenus" onClick={toggle}><li>Contact Us</li></Link>
              {isAuthenticated?(
                 <>
-                <Link to="/" class="navmenus" onClick={toggle}><li onClick={logoutHandler} >Logout</li></Link>
-                <Link to="/myprofile" class="navmenus" onClick={toggle}><li onClick={toggle}>My Profile</li></Link>
-                <Link to="/" class="navmenus" onClick={toggle}><li >My Orders</li></Link>
-                {user.role==='admin'?<Link class="navmenus" to="/admin/dashboard" onClick={toggle}><li >Dashboard</li></Link>:<></>}
+                <Link to="/" className="navmenus" onClick={toggle}><li onClick={logoutHandler} >Logout</li></Link>
+                <Link to="/myprofile" className="navmenus" onClick={toggle}><li onClick={toggle}>My Profile</li></Link>
+                <Link to="/" className="navmenus" onClick={toggle}><li >My Orders</li></Link>
+                {user.role==='admin'?<Link className="navmenus" to="/admin/dashboard" onClick={toggle}><li >Dashboard</li></Link>:<></>}
                 
                 </>
                 
   ):(
              <>
-             <Link to="/login" class="navmenus" onClick={toggle}><li>Login</li></Link>
-             <Link to="/register" class="navmenus" onClick={toggle}><li>Register</li></Link>
+             <Link to="/login" className="navmenus" onClick={toggle}><li>Login</li></Link>
+             <Link to="/user/register" className="navmenus" onClick={toggle}><li>Register</li></Link>
              </>
              
              
