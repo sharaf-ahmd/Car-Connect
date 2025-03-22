@@ -14,6 +14,7 @@ import React,{useEffect} from 'react'
 import store from './store.jsx'
 import AddProduct from './Market/NewProduct.jsx'
 import ProtectedRoute from './route/protectedRoute.jsx'
+import ProductDetail from './Market/ProductDetail.jsx'
 
 function App() {
   useEffect(()=>{
@@ -38,6 +39,7 @@ function App() {
           <Route path="/" element={<Home/>}/>
           <Route path="/shop" element={<Shop/>}/>
           <Route path="/new/product" element={<ProtectedRoute isSupplier={true}><AddProduct/></ProtectedRoute>}/>
+          <Route path="/product/:id" element={<ProductDetail/>}/>
         </Routes>
 
         <Routes>
