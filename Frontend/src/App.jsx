@@ -15,7 +15,9 @@ import store from './store.jsx'
 import AddProduct from './Market/NewProduct.jsx'
 import ProtectedRoute from './route/protectedRoute.jsx'
 import ProductDetail from './Market/ProductDetail.jsx'
-
+import Cart from './Market/cart.jsx'
+import Shipping from './Market/Shipping.jsx'
+import ConfirmOrder from './Market/ConfirmOrder.jsx'
 function App() {
   useEffect(()=>{
     store.dispatch(loadUser)
@@ -26,6 +28,7 @@ function App() {
       <HelmetProvider>
         <Header/>
         <ToastContainer />
+        
         <Routes>
           {/* CarRepair routes */}
         </Routes>
@@ -37,9 +40,13 @@ function App() {
         <Routes>
           {/* Market routes */}
           <Route path="/" element={<Home/>}/>
+          <Route path="/cart" element={<Cart/>}/>
           <Route path="/shop" element={<Shop/>}/>
+          <Route path="/order/confirm" element={<ProtectedRoute><ConfirmOrder/></ProtectedRoute>}/>
           <Route path="/new/product" element={<ProtectedRoute isSupplier={true}><AddProduct/></ProtectedRoute>}/>
           <Route path="/product/:id" element={<ProductDetail/>}/>
+          <Route path="/shipping" element={<ProtectedRoute ><Shipping/></ProtectedRoute>}/>
+
         </Routes>
 
         <Routes>

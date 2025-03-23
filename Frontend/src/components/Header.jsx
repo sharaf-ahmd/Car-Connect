@@ -25,7 +25,7 @@ const Header = () => {
     <div className='container'>
       <div className="nav">
             
-            <img  className="logo" src="/MarketImages/carconnect.png" alt="logo"/>
+            <Link to="/"><img  className="logo" src="/MarketImages/carconnect.png" alt="logo"/></Link>
             {menu?<IoClose  
             color={'#f8f8f6'}
             size="2.2em"

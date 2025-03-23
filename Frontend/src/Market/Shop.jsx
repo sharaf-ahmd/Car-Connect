@@ -9,6 +9,7 @@ import '../Profile/Login.css'
 import Search from './Search'
 import Product from './Product.jsx'
 import { FaShoppingCart } from "react-icons/fa";
+import { Link } from 'react-router-dom'
 
 const Shop = () => {
   const dispatch=useDispatch();
@@ -64,10 +65,10 @@ const Shop = () => {
           
           
         </div>
-        <div className="cart-button" >
+        <Link to="/cart"><div className="cart-button" >
         <FaShoppingCart />
         <span className="cart-count">{cartItems.length}</span>
-      </div>
+      </div></Link>
         
       </div>
       

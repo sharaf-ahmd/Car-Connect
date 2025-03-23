@@ -1,4 +1,3 @@
-
 import '../Profile/Login.css'
 import React,{ Fragment, useEffect, useState } from "react"
 import { getProduct } from './actions/productActions'
@@ -6,9 +5,12 @@ import { useDispatch,useSelector } from "react-redux";
 import {useNavigate, useParams} from 'react-router-dom'
 import { toast } from "react-toastify";
 import { addCartItem } from './actions/cartActions';
+import { FaShoppingCart } from "react-icons/fa";
+import { Link } from 'react-router-dom'
 
 export default function ProductDetail(){
     const {product,loading}=useSelector((state)=>state.productState)
+      const {items:cartItems}=useSelector(state=>state.cartState)
     const dispatch=useDispatch();
     const navigate=useNavigate()
     const {id}=useParams()
@@ -53,6 +55,10 @@ export default function ProductDetail(){
             </div>
           
         </div>
+        <Link to="/cart"><div className="cart-button" >
+                <FaShoppingCart />
+                <span className="cart-count">{cartItems.length}</span>
+              </div></Link>
       
     </div> </Fragment>}
     </Fragment>

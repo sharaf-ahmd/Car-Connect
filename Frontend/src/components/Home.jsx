@@ -55,55 +55,55 @@ const Home = () => {
             </p></Link>
           </div>
           <div className="col1_service">
-            <a className="service_list" href="a.hml">
+            <Link className="service_list" to="/">
             <span className="no">02</span> <br/>
             Car Wash <br/>
             <p className="quote">
               
               Where Every Wash Feels Like New.
-              </p></a>
+              </p></Link>
             
           </div>
           <div className="col1_service">
-            <a className="service_list" href="a.hml">
+            <Link className="service_list" to="/">
             <span className="no">03</span> <br/>
             Car Repair <br/>
             <p className="quote">
               
               Precision Repairs for Peak Performance.
           
-              </p></a>
+              </p></Link>
             </div>
         </div>
         <div className="row1">
           <div className="col1_service"> 
-            <a className="service_list" href="a.hml">
+            <Link className="service_list" to="/">
             <span className="no">04</span><br/>
             Towing <br/>
             <p className="quote">
               
               Your Roadside Rescue Team.
-            </p></a>
+            </p></Link>
            
           </div>
           <div className="col1_service">
-            <a className="service_list" href="a.hml">
+            <Link className="service_list" to="/">
             <span className="no">05</span> <br/>
            Engine Repair <br/>
            <p className="quote">
               
             Engine Trouble? We’ve Got the Fix.
-          </p></a>
+          </p></Link>
            
           </div>
           <div className="col1_service">
-            <a className="service_list" href="a.hml">
+            <Link className="service_list" to="/">
             <span className="no">06</span> <br/>
             Electrical Repair <br/>
             <p className="quote">
               
               Keeping Currents Flowing, Miles Going.
-            </p></a>
+            </p></Link>
             
           </div>
         </div>
