@@ -2,7 +2,7 @@ import React from 'react'
 import { Box, Container, Heading, Text, SimpleGrid, Image, VStack, Center } from '@chakra-ui/react';
 import { Users, Target, Heart } from 'lucide-react';
 import Sharaf from '/CarRepairImages/sharaf.jpeg'
-import ahamed from '/CarRepairImages/Ahamed.jpeg'
+import ahamed from '/CarRepairImages/ahamed.jpeg'
 import Rifky from '/CarRepairImages/rifky.png'
 
 

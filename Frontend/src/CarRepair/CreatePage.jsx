@@ -2,8 +2,9 @@ import React from 'react'
 import { useState } from 'react'
 import { Box, Button, Container, Heading, Input, Toaster, VStack } from '@chakra-ui/react'
 import { useColorModeValue } from '../components/ui/color-mode'
-import { useServiceStore } from '../store/service'
-import { toaster } from "../components/ui/toaster"
+import { useServiceStore } from '../store/service.js'
+
+import { toaster } from "../components/ui/toaster.jsx"
 
 
 const CreatePage = () => {

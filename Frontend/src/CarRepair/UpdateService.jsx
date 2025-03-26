@@ -2,13 +2,13 @@ import { useColorModeValue } from '../components/ui/color-mode'
 import { Box, Button, Container, Heading, Input, VStack } from '@chakra-ui/react'
 import { useLocation, useNavigate } from 'react-router-dom';
 import React, { useState } from 'react'
-import { useServiceStore } from '../store/service';
+import { useServiceStore } from '../store/service.js';
 
 const UpdateService = () => {
 
   const handleUpdate = async()=>{
     await UpdateService(newService._id, newService);
-    navigate('/Operations')
+    navigate('/operations')
   }
     
   const handleChange = (e) => {

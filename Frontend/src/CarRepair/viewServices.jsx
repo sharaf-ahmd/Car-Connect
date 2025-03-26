@@ -1,8 +1,8 @@
 import { Container, VStack, Text } from '@chakra-ui/react'
 import React, { useEffect, useState } from 'react'
-import { useServiceStore } from '../store/service';
-import ServiceList from '../components/ServiceList';
-import ServiceSearch from '../components/ServiceSearch';
+import { useServiceStore } from '../store/service.js';
+import ServiceList from '../components/ServiceList.jsx';
+import ServiceSearch from '../components/ServiceSearch.jsx';
 
 const UserDash = () => {
 
@@ -51,5 +51,3 @@ const UserDash = () => {
 }
 
 export default UserDash
-
-

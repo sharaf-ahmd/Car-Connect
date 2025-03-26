@@ -1,6 +1,5 @@
 import React from 'react'
 import {  FormControl,  FormLabel,} from '@chakra-ui/form-control'
-import { toaster } from "@/components/ui/toaster"
 import { Mail, Phone, MapPin } from 'lucide-react';
 import {
   Box,
@@ -15,7 +14,6 @@ import {
   Icon,
   Center
 } from '@chakra-ui/react';
-import { useColorModeValue } from '@/components/ui/color-mode';
 
 const ContactUs = () => {
 

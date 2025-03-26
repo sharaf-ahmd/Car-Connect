@@ -1,112 +1,127 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import './Header.css'
 const Home = () => {
   return (
-    <div className='container'>
+    <div className='container1'>
       
-      <div class="hero" id="hero">
-        <div class="text">
-          <p class="we">
-            Drive with <br /> <span class="ai">Confidence, </span> 
-            Shine with <br /> <span class="ai">Excellence.</span> 
+      <div className="hero" id="hero">
+        <div className="text">
+          <p className="we">
+            Drive with <br /> <span className="ai">Confidence, </span> 
+            Shine with <br /> <span className="ai">Excellence.</span> 
           </p>
           <br />
-          <p class="collaborate">
+          <p className="collaborate">
             Unmatched care for peak performance and lasting shine.
           </p>
           <br />
 
-          <a href="register.html"><p class="schedule">Register Now</p></a>
+          <Link to="/user/register"><p className="schedule">Register Now</p></Link>
         </div>
         <img
-          class="video"
+          className="video"
           src="/MarketImages/car.avif"
           
         />
       </div>
       
       <br/>
-      <div class="hero" id="hero">
-        <div class="car_logo">
-          <img class="carLogo" src="/MarketImages/tesla.png" alt=""/>
-          <img class="audilogo" src="/MarketImages/audi.png" alt=""/>
-          <img class="carLogo" src="/MarketImages/toyota.png" alt=""/>
-          <img class="carLogo" src="/MarketImages/suzuki.png" alt=""/>
-          <img class="isuzulogo" src="/MarketImages/isuzu.png" alt=""/>
-          <img class="carLogo" src="/MarketImages/benz.png" alt=""/>
-          <img class="carLogo" src="/MarketImages/mahindra.png" alt=""/>
-          <img class="kialogo" src="/MarketImages/kia.png" alt=""/>
+      <div className="hero" id="hero">
+        <div className="car_logo">
+          <img className="carLogo" src="/MarketImages/tesla.png" alt=""/>
+          <img className="audilogo" src="/MarketImages/audi.png" alt=""/>
+          <img className="carLogo" src="/MarketImages/toyota.png" alt=""/>
+          <img className="carLogo" src="/MarketImages/suzuki.png" alt=""/>
+          <img className="isuzulogo" src="/MarketImages/isuzu.png" alt=""/>
+          <img className="carLogo" src="/MarketImages/benz.png" alt=""/>
+          <img className="carLogo" src="/MarketImages/mahindra.png" alt=""/>
+          <img className="kialogo" src="/MarketImages/kia.png" alt=""/>
         </div>
         
       </div>
       
       <br/>
-      <div class="hero1" >
-        <h1 class="what" id="services">Our Services</h1>
-        <div class="row">
-          <div class="col1_service"> 
-            <a class="service_list" href="a.hml">
-            <span class="no">01</span><br/>
+      <div className="hero1" >
+        <h1 className="what" id="services">Our Services</h1>
+        <div className="row">
+          <div className="col1_service"> 
+            <Link className="service_list" to="/shop">
+            <span className="no">01</span><br/>
             Spare Parts<br/>
-            <p class="quote">
+            <p className="quote">
               
               Your Digital Bridge to Quality Spare Parts.
-            </p></a>
+            </p></Link>
           </div>
-          <div class="col1_service">
-            <a class="service_list" href="a.hml">
-            <span class="no">02</span> <br/>
+          <div className="col1_service">
+            <Link className="service_list" to="/">
+            <span className="no">02</span> <br/>
             Car Wash <br/>
-            <p class="quote">
+            <p className="quote">
               
               Where Every Wash Feels Like New.
-              </p></a>
+              </p></Link>
             
           </div>
-          <div class="col1_service">
-            <a class="service_list" href="a.hml">
-            <span class="no">03</span> <br/>
+          <div className="col1_service">
+            <Link className="service_list" to="/">
+            <span className="no">03</span> <br/>
             Car Repair <br/>
-            <p class="quote">
+            <p className="quote">
               
               Precision Repairs for Peak Performance.
           
-              </p></a>
+              </p></Link>
             </div>
         </div>
-        <div class="row1">
-          <div class="col1_service"> 
-            <a class="service_list" href="a.hml">
-            <span class="no">04</span><br/>
+        <div className="row1">
+          <div className="col1_service"> 
+            <Link className="service_list" to="/">
+            <span className="no">04</span><br/>
             Towing <br/>
-            <p class="quote">
+            <p className="quote">
               
               Your Roadside Rescue Team.
-            </p></a>
+            </p></Link>
            
           </div>
-          <div class="col1_service">
-            <a class="service_list" href="a.hml">
-            <span class="no">05</span> <br/>
+          <div className="col1_service">
+            <Link className="service_list" to="/">
+            <span className="no">05</span> <br/>
            Engine Repair <br/>
-           <p class="quote">
+           <p className="quote">
               
             Engine Trouble? We’ve Got the Fix.
-          </p></a>
+          </p></Link>
            
           </div>
-          <div class="col1_service">
-            <a class="service_list" href="a.hml">
-            <span class="no">06</span> <br/>
+          <div className="col1_service">
+            <Link className="service_list" to="/">
+            <span className="no">06</span> <br/>
             Electrical Repair <br/>
-            <p class="quote">
+            <p className="quote">
               
               Keeping Currents Flowing, Miles Going.
-            </p></a>
+            </p></Link>
             
           </div>
         </div>
         
+      </div>
+      <br/>
+      <div className="hero">
+        
+      <div class="hero1" style={{display:"flex",width:"100%",paddingLeft:"200px"}}>
+        <img src="/MarketImages/spare.jpg" alt="" style={{width:"400px",borderRadius:"6px"}}/>
+        <div className="regseller" style={{marginLeft:"70px",marginTop:"20px"}}>
+        <p style={{textAlign:"center",marginTop:"20px",fontSize:"18px",color:"#222222"}}>Are you a spare parts seller looking to expand your reach? Partner with CarConnect and 
+          get your products in front of thousands of potential customers! Our platform makes it easy to list and 
+          manage your products while offering support to help you succeed.</p>
+        
+        <Link to="/supplier/register"><p class="schedule1">Become a seller.</p></Link>
+        </div>
+      </div>
       </div>
     </div>
   )

@@ -20,7 +20,7 @@ const MechanicDash = () => {
       description:"Expand your offerings and introduce new services to your clients.",
       buttonText:"Add Now",
       image:image1,
-      to:'/CreatePage',
+      to:'/createpage',
 
     },
 
@@ -29,7 +29,7 @@ const MechanicDash = () => {
         description:"manage your services by updating existing offerings to improve quality or deleting outdated ones.",
         buttonText:"View Now",
         image:image2,
-        to:'/Operations',
+        to:'/operations',
 
     },
 
