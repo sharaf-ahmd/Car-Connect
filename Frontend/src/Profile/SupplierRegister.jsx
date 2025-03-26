@@ -30,6 +30,14 @@ const SupplierRegister = () => {
       toast.error("Please enter a valid phone number.");
       return;
     }
+    if (userData.password.length < 10  ) {
+      toast.error('Password must be at least 10 characters long.');
+      return;
+    }
+     if (userData.password !== userData.confirmPassword) {
+          toast.error('Passwords do not match.');
+          return;
+        }
     const data = {
       name: userData.name,
       phoneNo: userData.phoneNo,
@@ -71,6 +79,9 @@ const SupplierRegister = () => {
             <input type="tel" id='phone' name='phoneNo' onChange={onChange} required placeholder="077 111 2255"/><br/><br/>
             <label className="label"  htmlFor="password">Password</label><br/>
             <input type="password" name='password' onChange={onChange} id="password" required placeholder="Enter Password"/><br/><br/>
+            <label className="label"  htmlFor="confirmPassword">Confirm Password</label><br/>
+            <input type="password" name='confirmPassword' onChange={onChange} id="confirmPassword" required placeholder="Confirm Password"/>
+            
             
             <br/><br/>
             <input type="submit" className="submit"  value="Register"/>

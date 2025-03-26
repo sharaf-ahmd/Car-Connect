@@ -3,7 +3,7 @@ import {useDispatch, useSelector} from 'react-redux'
 import {useNavigate} from 'react-router-dom'
 import {clearProductCreated} from './slice/productSlice.jsx'
 import {createNewProduct} from './actions/productActions.jsx'
-import { clearError } from './slice/productSlice.jsx'
+import { clearError } from './slice/productsSlice.jsx'
 import '../Profile/Login.css'
 
 import {toast} from 'react-toastify'

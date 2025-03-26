@@ -17,7 +17,7 @@ const ConfirmOrder = () => {
             totalPrice
         }
         sessionStorage.setItem('orderInfo',JSON.stringify(data))
-        navigate('/')
+        navigate('/payment')
     }
     useEffect(()=>{
         validateShipping(shippingInfo, navigate)
@@ -63,7 +63,7 @@ const ConfirmOrder = () => {
                 <br/>
                 <hr/>
                 <p className="noofitems">Total: <b>Rs. {shippingPrice+itemsPrice}</b></p>
-                <p className="cartbutton">Proceed to pay</p>
+                <p className="cartbutton" onClick={processPayment}>Proceed to pay</p>
             </div>
             
           

@@ -10,7 +10,7 @@ import './App.css'
 import { ToastContainer } from 'react-toastify'
 import Shop from './Market/Shop.jsx'
 import { loadUser } from './Profile/actions/userActions.jsx'
-import React,{useEffect} from 'react'
+import React,{useEffect,useState} from 'react'
 import store from './store.jsx'
 import AddProduct from './Market/NewProduct.jsx'
 import ProtectedRoute from './route/protectedRoute.jsx'
@@ -18,9 +18,27 @@ import ProductDetail from './Market/ProductDetail.jsx'
 import Cart from './Market/cart.jsx'
 import Shipping from './Market/Shipping.jsx'
 import ConfirmOrder from './Market/ConfirmOrder.jsx'
+import Payment from './Market/payment.jsx'
+import {Elements} from '@stripe/react-stripe-js'
+import { loadStripe } from '@stripe/stripe-js'
+import OrderSuccess from './Market/OrderSuccess.jsx'
+import SupplierDashboard from './Market/SupplierDashboard.jsx'
+import AdminDAshboard from './Market/AdminDAshboard.jsx'
+import AdminProductList from './Market/AdminProductList.jsx'
+import UpdateProduct from './Market/UpdateProduct.jsx'
+import ProducSearch from './Market/ProducSearch.jsx'
+import axios from 'axios'
 function App() {
+  const [stripeApiKey,setStripeApiKey]=useState("")
   useEffect(()=>{
+    
     store.dispatch(loadUser)
+    async function getStripeApiKey(){
+      const {data}=await axios.get(`/api/stripeapi`)
+      
+      setStripeApiKey(data.stripeApiKey)
+    }
+    getStripeApiKey()
   },[])
 
   return (
@@ -42,11 +60,18 @@ function App() {
           <Route path="/" element={<Home/>}/>
           <Route path="/cart" element={<Cart/>}/>
           <Route path="/shop" element={<Shop/>}/>
+          <Route path="/order/success" element={<ProtectedRoute><OrderSuccess/></ProtectedRoute>}/>
           <Route path="/order/confirm" element={<ProtectedRoute><ConfirmOrder/></ProtectedRoute>}/>
           <Route path="/new/product" element={<ProtectedRoute isSupplier={true}><AddProduct/></ProtectedRoute>}/>
           <Route path="/product/:id" element={<ProductDetail/>}/>
           <Route path="/shipping" element={<ProtectedRoute ><Shipping/></ProtectedRoute>}/>
-
+          {stripeApiKey &&<Route path="/payment" element={<ProtectedRoute><Elements stripe={loadStripe(stripeApiKey)}><Payment/></Elements></ProtectedRoute>}/>}
+          <Route path="/supplier/dashboard" element={<ProtectedRoute><SupplierDashboard/></ProtectedRoute>}/>
+          <Route path="/admin/dashboard" element={<ProtectedRoute><AdminDAshboard/></ProtectedRoute>}/>
+          <Route path='/admin/products' element={<ProtectedRoute isAdmin={true}><AdminProductList/></ProtectedRoute> } />
+          <Route path='/admin/product/:id' element={<ProtectedRoute isAdmin={true}><UpdateProduct/></ProtectedRoute> } />
+          <Route path="/search/:keyword" element={<ProducSearch/>}/>
+            
         </Routes>
 
         <Routes>

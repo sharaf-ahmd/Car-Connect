@@ -39,12 +39,7 @@ const productSlice=createSlice({
                 isProductCreated:false
             }
         },
-        clearError(state,action){
-            return{
-                ...state,
-                error:null,
-            }
-        },
+        
         productRequest(state, action){
             return {
                 loading: true
@@ -81,7 +76,62 @@ const productSlice=createSlice({
                 error:  action.payload
             }
         },
-
+        deleteProductRequest(state, action){
+            return {
+                ...state,
+                loading: true
+            }
+        },
+        deleteProductSuccess(state, action){
+            return {
+                ...state,
+                loading: false,
+                isProductDeleted:true
+                
+            }
+        },
+        deleteProductFail(state, action){
+            return {
+                ...state,
+                loading: false,
+                error:  action.payload,
+            }
+        },
+        clearProductDeleted(state, action){
+            return{
+                ...state,
+                isProductDeleted:false
+            }
+        },
+        
+        updateProductRequest(state, action){
+            return {
+                ...state,
+                loading: true
+            }
+        },
+        updateProductSuccess(state, action){
+            return {
+                ...state,
+                loading: false,
+                product: action.payload.product,
+                isProductUpdated:true
+                
+            }
+        },
+        updateProductFail(state, action){
+            return {
+                loading: false,
+                error:  action.payload,
+                isProductCreated:false
+            }
+        },
+        clearProductUpdated(state, action){
+            return{
+                ...state,
+                isProductUpdated:false
+            }
+        },
     }
 })
 const {actions,reducer}=productSlice;
@@ -89,14 +139,28 @@ export const{
     newProductFail,
     newProductRequest,
     newProductSuccess,
+
     clearProductCreated,
-    clearError,
+
     productFail,
     productRequest,
     productSuccess,
+
     adminProductFail,
     adminProductRequest,
     adminProductSuccess,
+
+    deleteProductFail,
+    deleteProductRequest,
+    deleteProductSuccess,
+    clearProductDeleted,
+
+    updateProductFail,
+    updateProductRequest,
+    updateProductSuccess,
+    clearProductUpdated,
+
+
 }=actions;
 
 export default reducer;

@@ -45,7 +45,7 @@ export default function cart(){
             <div className="icons">
               <div className="addtocartitem">
                 <p className="minus" onClick={()=>dispatch(decreaseQty(item))}>-</p>
-                <input className="qty" type="number" value={item.quantity} readonly/>
+                <input className="qty" type="number" value={item.quantity} readOnly/>
                 <p className="plus" onClick={()=>increaseQty(item)}>+</p>
               </div>
               

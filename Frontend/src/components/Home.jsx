@@ -109,6 +109,20 @@ const Home = () => {
         </div>
         
       </div>
+      <br/>
+      <div className="hero">
+        
+      <div class="hero1" style={{display:"flex",width:"100%",paddingLeft:"200px"}}>
+        <img src="/MarketImages/spare.jpg" alt="" style={{width:"400px",borderRadius:"6px"}}/>
+        <div className="regseller" style={{marginLeft:"70px",marginTop:"20px"}}>
+        <p style={{textAlign:"center",marginTop:"20px",fontSize:"18px"}}>Are you a spare parts seller looking to expand your reach? Partner with CarConnect and 
+          get your products in front of thousands of potential customers! Our platform makes it easy to list and 
+          manage your products while offering support to help you succeed.</p>
+        
+        <Link to="/supplier/register"><p class="schedule1">Become a seller.</p></Link>
+        </div>
+      </div>
+      </div>
     </div>
   )
 }

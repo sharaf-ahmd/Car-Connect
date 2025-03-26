@@ -19,11 +19,14 @@ export default function Shipping(){
   const [address,setAddress] =useState(shippingInfo.address)
     const [city,setCity] =useState(shippingInfo.city)
     const [phoneNo,setPhoneNo] =useState(shippingInfo.phoneNo)
+    const [postalCode,setPostalCode] =useState(shippingInfo.postalCode)
+    const [country,setCountry] =useState(shippingInfo.country)
+    const [district,setDistrict] =useState(shippingInfo.state)
     const dispatch=useDispatch()
     const navigate=useNavigate()
     const submitHandler=(e)=>{
         e.preventDefault()
-        dispatch(saveShippingInfo({address,city,phoneNo}))
+        dispatch(saveShippingInfo({address,city,phoneNo,postalCode,country,district}))
         navigate('/order/confirm')
     }
   
@@ -36,16 +39,29 @@ export default function Shipping(){
             <div className="form-div">
   
               <form onSubmit={submitHandler}>
-                  <label className="label" for="address">Address</label><br/>
+                <label className="label" htmlFor="address">Address</label><br/>
                 <input type="text" id='address' value={address} required onChange={(e)=>setAddress(e.target.value)} placeholder="Enter Address"/><br/><br/>
                 
-                <label className="label" for="city">City</label><br/>
+                <label className="label" htmlFor="city">City</label><br/>
                 <input type="tel" id='city' value={city} onChange={(e)=>setCity(e.target.value)} required placeholder="Enter City"/><br/><br/>
-                <label className="label"  for="phone">Phone Number</label><br/>
-                <input type="tel" id="phone" value={phoneNo}  onChange={(e)=>setPhoneNo(e.target.value)} required placeholder="Enter Phone Number"/>
+
+                <label className="label" htmlFor="city">Postal Code</label><br/>
+                <input type="number" id='postalcode' value={postalCode} onChange={(e)=>setPostalCode(e.target.value)} required placeholder="Enter Postal code"/><br/><br/>
+
+                <label className="label"  htmlFor="phone">District</label><br/>
+                <input type="text" id="district" value={district}  onChange={(e)=>setDistrict(e.target.value)} required placeholder="Enter District"/>
                 
                 <br/><br/>
-                <input type="submit" className="submit" value="Continue"/>
+
+                <label className="label"  htmlFor="phone">Country</label><br/>
+                <input type="text" id="country" value={country}  onChange={(e)=>setCountry(e.target.value)} required placeholder="Enter Country"/>
+                
+                <br/><br/>
+                <label className="label"  htmlFor="phone">Phone</label><br/>
+                <input type="tel" id="district" value={phoneNo}  onChange={(e)=>setPhoneNo(e.target.value)} required placeholder="Enter Phone Number"/>
+                
+                <br/><br/>
+                <input type="submit" id="pay_btn" className="submit" value="Continue"/>
                 
             
               </form>

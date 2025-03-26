@@ -7,13 +7,21 @@ import { newProductFail,
     productSuccess,
     adminProductFail,
     adminProductRequest,
-    adminProductSuccess
+    adminProductSuccess,
+    deleteProductFail,
+    deleteProductRequest,
+    deleteProductSuccess,
+    updateProductFail,
+    updateProductRequest,
+    updateProductSuccess
+
 } from "../slice/productSlice.jsx";
 import {
     productsRequest,
     productsSuccess,
     productsFail
 } from '../slice/productsSlice.jsx'
+import { BiLink } from 'react-icons/bi';
 
 //create product
 export const createNewProduct=productData=>async(dispatch)=>{
@@ -63,4 +71,50 @@ export const getProduct=id=>async(dispatch)=>{
     } catch (error) {
         dispatch(productFail(error.response?.data?.message || error.message))
     }
+}
+
+
+
+//admin get all products
+export const getAdminProducts  =  async (dispatch) => {
+
+    try {  
+        dispatch(adminProductRequest()) 
+        const { data }  =  await axios.get(`/api/admin/products`);
+        dispatch(adminProductSuccess(data))
+    } catch (error) {
+        //handle error
+        dispatch(adminProductFail(error.response.data.message))
+    }
+    
+}
+
+
+//delete product
+export const deleteProduct  = id =>  async (dispatch) => {
+
+    try {  
+        dispatch(deleteProductRequest()) 
+        await axios.delete(`/api/supplier/product/${id}`);
+        dispatch(deleteProductSuccess())
+    } catch (error) {
+        //handle error
+        dispatch(deleteProductFail(error.response.data.message))
+    }
+    
+}
+
+
+//update product
+export const updateProduct  = (id,productData) =>  async (dispatch) => {
+
+    try {  
+        dispatch(updateProductRequest()) 
+        const { data }  =  await axios.put(`/api/supplier/update/${id}`,productData);
+        dispatch(updateProductSuccess(data))
+    } catch (error) {
+        //handle error
+        dispatch(updateProductFail(error.response.data.message))
+    }
+    
 }

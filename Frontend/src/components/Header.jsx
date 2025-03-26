@@ -47,7 +47,7 @@ const Header = () => {
             <ul>
              <Link to="/" className="navmenus" onClick={toggle}><li>Home</li></Link>
              
-             <Link to="/new/product" className="navmenus" onClick={toggle}><li>About Us</li></Link>
+             <Link to="/" className="navmenus" onClick={toggle}><li>About Us</li></Link>
              <Link to="/" className="navmenus" onClick={toggle}><li>Contact Us</li></Link>
              {isAuthenticated?(
                 <>
@@ -55,7 +55,7 @@ const Header = () => {
                 <Link to="/myprofile" className="navmenus" onClick={toggle}><li onClick={toggle}>My Profile</li></Link>
                 <Link to="/" className="navmenus" onClick={toggle}><li >My Orders</li></Link>
                 {user.role==='admin'?<Link className="navmenus" to="/admin/dashboard" onClick={toggle}><li >Dashboard</li></Link>:<></>}
-                
+                {user.role==='supplier'?<Link className="navmenus" to="/supplier/dashboard" onClick={toggle}><li >Dashboard</li></Link>:<></>}
                 </>
                 
   ):(

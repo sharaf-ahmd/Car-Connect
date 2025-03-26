@@ -528,6 +528,100 @@
 }
 /*cart end*/
 
+.input{
+  border: 1px solid var(--white);
+  padding: 10px;
+  border-radius: 6px;
+  width: 300px;
+  margin-top: 10px;
+  font-family: "Work Sans", serif;
+  font-optical-sizing: auto;
+  font-weight:400;
+  font-style: normal;
+  font-size: 17px;
+  background: white;
+}
+
+.table{
+  
+  color: var(--white);
+  border-radius: 6px;
+  margin: 70px;
+  
+
+
+}
+.table th{
+  width: 200px;
+  text-align: left;
+  color: var(--darkgrey);
+  background: var(--white);
+  font-size: 20px;
+  padding: 10px;
+}
+.table td{
+  width: 200px;
+  color: var(--white);
+  border-bottom: 1px solid white;
+  padding: 10px;
+  font-size: 18px;
+  
+}
+.table .pagination{
+  display: none;
+  
+
+}
+.deleteProduct{
+  background: var(--red);
+  color: white;
+  width: 1.4em;
+  height: 1.4em;
+  padding: 5px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.edit{
+  background: var(--lightgrey);
+  color: white;
+  width: 1.4em;
+  height: 1.4em;
+  padding: 5px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.tablefrag{
+  display: flex;
+  justify-content: space-between;
+  width: 100px;
+  margin-left: 10px;
+}
+.have{
+  color: var(--darkgrey);
+  text-align: center;
+  font-family: "Work Sans", serif;
+font-optical-sizing: auto;
+font-weight: 600;
+font-style: normal;
+line-height: 40px;
+}
+
+.schedule1{
+  background: var(--darkgrey);
+  color: var(--white);
+  padding: 20px;
+  width: 260px;
+  border-radius: 6px;
+  font-size: 19px;
+  font-family: "Work Sans", serif;
+font-optical-sizing: auto;
+font-weight: 300;
+margin: 20px auto 5px auto ;
+}
+.schedule1:hover{
+  background: var(--red);
+}
+
   @media screen and (max-width:450px){
     
     /*login start*/
@@ -546,6 +640,10 @@
     input{
         width: 260px;
         font-size: 15px;
+    }
+    .input{
+      width: 260px;
+      font-size: 15px;
     }
     .submit{
         width: 282px;
@@ -752,6 +850,9 @@
     input{
         width: 235px;
     }
+    .input{
+      width: 235px;
+  }
     .submit{
         width: 258px;
     }
