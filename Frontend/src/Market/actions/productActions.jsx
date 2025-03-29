@@ -13,7 +13,10 @@ import { newProductFail,
     deleteProductSuccess,
     updateProductFail,
     updateProductRequest,
-    updateProductSuccess
+    updateProductSuccess,
+    supplierProductRequest,
+    supplierProductSuccess,
+    supplierProductFail
 
 } from "../slice/productSlice.jsx";
 import {
@@ -115,6 +118,20 @@ export const updateProduct  = (id,productData) =>  async (dispatch) => {
     } catch (error) {
         //handle error
         dispatch(updateProductFail(error.response.data.message))
+    }
+    
+}
+
+
+export const getSupplierProducts  =  async (dispatch) => {
+
+    try {  
+        dispatch(supplierProductRequest()) 
+        const { data }  =  await axios.get(`/api/supplier/products`);
+        dispatch(supplierProductSuccess(data))
+    } catch (error) {
+        //handle error
+        dispatch(supplierProductFail(error.response.data.message))
     }
     
 }

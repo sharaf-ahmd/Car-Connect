@@ -132,6 +132,24 @@ const productSlice=createSlice({
                 isProductUpdated:false
             }
         },
+        supplierProductRequest(state, action){
+            return {
+                loading: true
+            }
+        },
+        supplierProductSuccess(state, action){
+            return {
+                loading: false,
+                products: action.payload.products
+                
+            }
+        },
+        supplierProductFail(state, action){
+            return {
+                loading: false,
+                error:  action.payload
+            }
+        },
     }
 })
 const {actions,reducer}=productSlice;
@@ -159,6 +177,10 @@ export const{
     updateProductRequest,
     updateProductSuccess,
     clearProductUpdated,
+
+    supplierProductFail,
+    supplierProductRequest,
+    supplierProductSuccess,
 
 
 }=actions;

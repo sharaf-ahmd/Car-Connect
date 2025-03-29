@@ -338,7 +338,15 @@ margin-top: 10px;
   color: var(--darkgrey);
 }
 /*our services end*/
-
+#logoutButton:hover{
+  background: var(--white);
+  color: var(--red);
+}
+#logoutButton{
+  background: var(--red);
+  color: var(--white);
+  border: none;
+}
 
 @media screen and (max-width:450px){
     

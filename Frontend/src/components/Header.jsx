@@ -51,11 +51,12 @@ const Header = () => {
              <Link to="/" className="navmenus" onClick={toggle}><li>Contact Us</li></Link>
              {isAuthenticated?(
                 <>
-                <Link to="/" className="navmenus" onClick={toggle}><li onClick={logoutHandler} >Logout</li></Link>
+                
                 <Link to="/myprofile" className="navmenus" onClick={toggle}><li onClick={toggle}>My Profile</li></Link>
                 <Link to="/" className="navmenus" onClick={toggle}><li >My Orders</li></Link>
                 {user.role==='admin'?<Link className="navmenus" to="/admin/dashboard" onClick={toggle}><li >Dashboard</li></Link>:<></>}
                 {user.role==='supplier'?<Link className="navmenus" to="/supplier/dashboard" onClick={toggle}><li >Dashboard</li></Link>:<></>}
+                <Link to="/" className="navmenus" id="logoutButton"  onClick={toggle}><li onClick={logoutHandler} >Logout</li></Link>
                 </>
                 
   ):(

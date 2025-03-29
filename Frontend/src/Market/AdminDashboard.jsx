@@ -1,7 +1,17 @@
-import React from 'react'
+
 import {Link} from 'react-router-dom'
+import {useDispatch, useSelector} from 'react-redux';
+import { useEffect } from "react";
+import {getAdminProducts} from './actions/productActions'
 
 const AdminDAshboard = () => {
+  const { products = [] } = useSelector( state => state.productState);
+    const dispatch = useDispatch();
+    
+   useEffect( () => {
+    dispatch(getAdminProducts);
+   
+  }, [])
   return (
     <div className='container1'>
       <div className="hero1" >
@@ -13,26 +23,26 @@ const AdminDAshboard = () => {
             
             <p className="quote">
               
-              Add new product.
+              {products.length} Products
             </p></Link>
           </div>
           <div className="col1_service">
             <a className="service_list" href="a.hml">
-            <span className="no"> Products </span> <br/>
+            <span className="no"> Spareparts Suppliers </span> <br/>
            
             <p className="quote">
               
-              10 products
+              10 Suppliers
               </p></a>
             
           </div>
           <div className="col1_service">
             <a className="service_list" href="a.hml">
-            <span className="no">Orders</span> <br/>
+            <span className="no">Users</span> <br/>
              
             <p className="quote">
               
-              10 orders
+              10 Users
           
               </p></a>
             </div>

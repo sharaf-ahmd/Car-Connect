@@ -85,6 +85,7 @@ useEffect(() => {
           onOpen: () => dispatch(clearProductUpdated())
       })
       setImages([])
+      navigate('/supplier/products')
       return;
   }
 

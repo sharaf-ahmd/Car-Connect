@@ -8,6 +8,9 @@ import UserRegister from './Profile/UserRegister.jsx'
 import SupplierRegister from './Profile/SupplierRegister.jsx'
 import './App.css'
 import { ToastContainer } from 'react-toastify'
+
+
+
 import Shop from './Market/Shop.jsx'
 import { loadUser } from './Profile/actions/userActions.jsx'
 import React,{useEffect,useState} from 'react'
@@ -27,6 +30,8 @@ import AdminDAshboard from './Market/AdminDAshboard.jsx'
 import AdminProductList from './Market/AdminProductList.jsx'
 import UpdateProduct from './Market/UpdateProduct.jsx'
 import ProducSearch from './Market/ProducSearch.jsx'
+import SupplierProductList from './Market/SupplierProductList.jsx'
+
 import axios from 'axios'
 function App() {
   const [stripeApiKey,setStripeApiKey]=useState("")
@@ -47,8 +52,11 @@ function App() {
         <Header/>
         <ToastContainer />
         
+        
         <Routes>
           {/* CarRepair routes */}
+          
+          
         </Routes>
 
         <Routes>
@@ -69,8 +77,10 @@ function App() {
           <Route path="/supplier/dashboard" element={<ProtectedRoute><SupplierDashboard/></ProtectedRoute>}/>
           <Route path="/admin/dashboard" element={<ProtectedRoute><AdminDAshboard/></ProtectedRoute>}/>
           <Route path='/admin/products' element={<ProtectedRoute isAdmin={true}><AdminProductList/></ProtectedRoute> } />
-          <Route path='/admin/product/:id' element={<ProtectedRoute isAdmin={true}><UpdateProduct/></ProtectedRoute> } />
+          <Route path='/supplier/product/:id' element={<ProtectedRoute isSupplier={true}><UpdateProduct/></ProtectedRoute> } />
           <Route path="/search/:keyword" element={<ProducSearch/>}/>
+          <Route path='/supplier/products' element={<ProtectedRoute isSupplier={true}><SupplierProductList/></ProtectedRoute> } />
+          
             
         </Routes>
 
