@@ -7,6 +7,7 @@ const profile=require('./routes/ProfileRoutes/profile.js')
 const product=require('./routes/MarketRoutes/productRoutes.js')
 const order=require('./routes/MarketRoutes/order.js')
 const payment=require('./routes/MarketRoutes/paymentRoutes.js')
+const repairSharaf=require('./routes/CarRepairRoutes/Service.route.js')
 app.use(express.json())
 app.use(cookieParser())
 
@@ -17,4 +18,5 @@ app.use('/',profile);
 app.use('/',product);
 app.use('/',order);
 app.use('/',payment);
+app.use('/',repairSharaf);
 module.exports=app;
