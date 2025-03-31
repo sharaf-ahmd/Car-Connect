@@ -154,7 +154,28 @@ const orderSlice =createSlice({
                 ...state,
                 isOrderUpdated:false
             }
-        }
+        },
+        supplierOrdersRequest(state, action) {
+            return {
+                ...state,
+                loading: true,
+            }
+        },
+        supplierOrdersSuccess(state, action) {
+            return {
+                ...state,
+                loading: false,
+                supplierOrders: action.payload.orders
+            }
+        },
+        supplierOrdersFail(state,action){
+            return{
+                ...state,
+                loading:false,
+                error:action.payload
+            }
+            
+        },
     }
     })
     const { actions, reducer } = orderSlice;
@@ -162,7 +183,27 @@ const orderSlice =createSlice({
         createOrderFail,
         createOrderRequest,
         createOrderSuccess,
-        clearError
+        clearError,
+        userOrdersFail,
+        userOrdersRequest,
+        userOrdersSuccess,
+        orderDetailFail,
+        orderDetailRequest,
+        orderDetailSuccess,
+        adminOrdersFail,
+        adminOrdersRequest,
+        adminOrdersSuccess,
+        deleteOrdersFail,
+        deleteOrdersRequest,
+        deleteOrdersSuccess,
+        updateOrdersFail,
+        updateOrdersRequest,
+        updateOrdersSuccess,
+        clearOrderDeleted,
+        clearOrderUpdated,
+        supplierOrdersFail,
+        supplierOrdersRequest,
+        supplierOrdersSuccess,
     }=actions;
 
     export default reducer;
