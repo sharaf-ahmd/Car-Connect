@@ -102,40 +102,40 @@ exports.deleteOrder = async (req, res, next) => {
 
 
 exports.getSupplierOrders = async (req, res) => {
-    const { id } = req.params;
+  try {
+    const supplierId = req.user.id; // Supplier must be logged in
 
-    try {
-        // Fetch orders and populate product details
-        const orders = await Order.find().populate({
-            path: 'orderItems.product',
-            select: 'name price user'
-        });
+    // Fetch all orders and populate product details
+    const orders = await Order.find().populate({
+      path: "orderItems.product",
+      select: "name price user",
+    });
 
-        // Filter products that belong to the specified supplier
-        const filteredOrders = orders.map((order) => ({
-            ...order._doc,
-            orderItems: order.orderItems.filter(item =>
-                item.product && item.product.user.toString() === id
-            )
-        })).filter(order => order.orderItems.length > 0);  // Keep orders that have supplier's products
+    // Filter only the products that belong to the logged-in supplier
+    const supplierOrders = orders
+      .map((order) => ({
+        _id: order._id,
+        shippingInfo: order.shippingInfo,
+        orderStatus: order.orderStatus,
+        totalPrice: order.totalPrice,
+        createdAt: order.createdAt,
+        orderItems: order.orderItems.filter(
+          (item) => item.product && item.product.user.toString() === supplierId
+        ),
+      }))
+      .filter((order) => order.orderItems.length > 0); // Only keep orders that have supplier's products
 
-        if (!filteredOrders.length) {
-            return res.status(404).json({
-                success: false,
-                message: 'No orders found for this supplier.'
-            });
-        }
+    res.status(200).json({
+      success: true,
+      orders: supplierOrders,
+    });
 
-        res.status(200).json({
-            success: true,
-            orders: filteredOrders
-        });
-
-    } catch (error) {
-        res.status(500).json({
-            success: false,
-            message: error.message
-        });
-    }
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: error.message,
+    });
+  }
 };
+
 
