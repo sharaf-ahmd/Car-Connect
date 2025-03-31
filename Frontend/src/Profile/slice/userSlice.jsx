@@ -93,6 +93,29 @@ const authSlice=createSlice({
                 error:  action.payload
             }
         },
+        loadUserRequest(state, action){
+            return {
+                ...state,
+                isAuthenticated:false,
+                loading: true,
+            }
+        },
+        loadUserSuccess(state, action){
+            return {
+                ...state,
+                loading: false,
+                isAuthenticated:true,
+                user: action.payload.user
+                
+            }
+        },
+        loadUserFail(state, action){
+            return {
+                ...state,
+                loading: false,
+                
+            }
+        },
     }
 })
 const {actions,reducer}=authSlice;
@@ -109,6 +132,9 @@ export const{
     supplierRegisterFail,
     supplierRegisterRequest,
     supplierRegisterSuccess,
+    loadUserFail,
+    loadUserRequest,
+    loadUserSuccess,
 
 }=actions;
 export default reducer;

@@ -28,6 +28,11 @@ background: var(--black);
     margin: 25px auto 0px auto;
     
 }
+.container1{
+  max-width: 1250px;
+  margin: 10px auto 0px auto;
+  
+}
 /*nav start*/
 .logo{
     width: 200px;
@@ -100,7 +105,7 @@ font-style: normal;
   
   border-radius:6px;
   max-width: 1250px;
-  margin: 10px auto 20px auto;
+  margin: 10px auto 10px auto;
 }
 
     
@@ -333,7 +338,15 @@ margin-top: 10px;
   color: var(--darkgrey);
 }
 /*our services end*/
-
+#logoutButton:hover{
+  background: var(--white);
+  color: var(--red);
+}
+#logoutButton{
+  background: var(--red);
+  color: var(--white);
+  border: none;
+}
 
 @media screen and (max-width:450px){
     
@@ -341,6 +354,11 @@ margin-top: 10px;
       max-width: 360px;
       margin: 15px auto 0px auto;
       
+  }
+  .container1{
+    max-width: 360px;
+    margin: 10px auto 0px auto;
+    
   }
   .footerContainer{
     background: var(--darkgrey);
@@ -484,6 +502,28 @@ margin-top: 10px;
 }
 
 
+/* car logo start*/
+.car_logo{
+  display: flex;
+  gap: 10px;
+}
+.carLogo{
+  width: 20px;
+
+}
+.audilogo{
+  width: 40px;
+}
+.isuzulogo{
+  width: 40px;
+}
+.kialogo{
+  width: 40px;
+ 
+}
+/* car logo end*/
+
+
 }  
 
 
@@ -493,6 +533,10 @@ margin-top: 10px;
       max-width: 330px;
       margin: 15px auto 0px auto;
       
+  }
+  .container1{
+    max-width: 330px;
+    
   }
   .footerContainer{
     background: var(--darkgrey);
