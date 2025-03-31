@@ -38,14 +38,14 @@ const SupplierDashboard = () => {
             
           </div>
           <div className="col1_service">
-            <a className="service_list" href="a.hml">
+            <Link className="service_list" to="/supplier/spareparts/orders">
             <span className="no">Orders</span> <br/>
              
             <p className="quote">
               
               10 orders
           
-              </p></a>
+              </p></Link>
             </div>
         </div>
         

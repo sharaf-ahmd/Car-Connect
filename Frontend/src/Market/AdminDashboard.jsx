@@ -3,13 +3,16 @@ import {Link} from 'react-router-dom'
 import {useDispatch, useSelector} from 'react-redux';
 import { useEffect } from "react";
 import {getAdminProducts} from './actions/productActions'
-
+import { adminOrders as adminOrdersAction } from './actions/orderActions';
 const AdminDAshboard = () => {
   const { products = [] } = useSelector( state => state.productState);
+  const { adminOrders = [] } = useSelector( state => state.orderState);
+    
     const dispatch = useDispatch();
     
    useEffect( () => {
     dispatch(getAdminProducts);
+    dispatch(adminOrdersAction);
    
   }, [])
   return (
@@ -52,13 +55,13 @@ const AdminDAshboard = () => {
 
         <div className="row">
           <div className="col1_service"> 
-            <a className="service_list" href="a.hml">
-            <span className="no">New Product</span><br/>
+            <Link className="service_list" to="/spareparts/orders">
+            <span className="no">Spareparts Orders</span><br/>
             
             <p className="quote">
               
-              Add new product.
-            </p></a>
+              {adminOrders.length} Order
+            </p></Link>
           </div>
           <div className="col1_service">
             <a className="service_list" href="a.hml">

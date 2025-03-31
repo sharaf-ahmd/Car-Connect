@@ -31,6 +31,8 @@ import AdminProductList from './Market/AdminProductList.jsx'
 import UpdateProduct from './Market/UpdateProduct.jsx'
 import ProducSearch from './Market/ProducSearch.jsx'
 import SupplierProductList from './Market/SupplierProductList.jsx'
+import SparePartsOrders from './Market/SparePartsOrders.jsx'
+import SupplierSparePartsOrders from './Market/SupplierSparePartsOrders.jsx'
 
 import axios from 'axios'
 function App() {
@@ -80,6 +82,8 @@ function App() {
           <Route path='/supplier/product/:id' element={<ProtectedRoute isSupplier={true}><UpdateProduct/></ProtectedRoute> } />
           <Route path="/search/:keyword" element={<ProducSearch/>}/>
           <Route path='/supplier/products' element={<ProtectedRoute isSupplier={true}><SupplierProductList/></ProtectedRoute> } />
+          <Route path='/spareparts/orders' element={<ProtectedRoute isAdmin={true}><SparePartsOrders/></ProtectedRoute> } />
+          <Route path='/supplier/spareparts/orders' element={<ProtectedRoute isSupplier={true}><SupplierSparePartsOrders/></ProtectedRoute> } />
           
             
         </Routes>
