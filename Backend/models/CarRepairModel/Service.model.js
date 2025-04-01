@@ -4,7 +4,7 @@ const mongoose=require("mongoose");
 
 
 
-const servicesSchema = new mongoose.Schema({
+const servicesSchema =  mongoose.Schema({
     name: { type: String, required: true },
     vendor:{type: String, required: true},
     location: { type: String, required: true },

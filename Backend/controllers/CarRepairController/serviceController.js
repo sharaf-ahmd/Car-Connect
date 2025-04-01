@@ -33,7 +33,7 @@ exports.createService = async (req, res) => {
 
 exports.deleteService = async (req, res) => {
     const {id}= req.params;
-   console.log(id)
+   
     try {
       await Service.findByIdAndDelete(id);
       res.status(200).json({success:true, message: 'Service deleted successfully'});
