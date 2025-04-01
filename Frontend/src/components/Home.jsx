@@ -65,7 +65,7 @@ const Home = () => {
             
           </div>
           <div className="col1_service">
-            <Link className="service_list" to="/">
+            <Link className="service_list" to="/user/dash">
             <span className="no">03</span> <br/>
             Car Repair <br/>
             <p className="quote">

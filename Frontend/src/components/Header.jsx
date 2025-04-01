@@ -47,8 +47,8 @@ const Header = () => {
             <ul>
              <Link to="/" className="navmenus" onClick={toggle}><li>Home</li></Link>
              
-             <Link to="/" className="navmenus" onClick={toggle}><li>About Us</li></Link>
-             <Link to="/" className="navmenus" onClick={toggle}><li>Contact Us</li></Link>
+             <Link to="/about/us" className="navmenus" onClick={toggle}><li>About Us</li></Link>
+             <Link to="/contact/us" className="navmenus" onClick={toggle}><li>Contact Us</li></Link>
              {isAuthenticated?(
                 <>
                 

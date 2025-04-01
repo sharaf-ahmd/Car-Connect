@@ -10,7 +10,10 @@ import { createOrderRequest,
     deleteOrdersSuccess,
     supplierOrdersRequest,
     supplierOrdersSuccess,
-    supplierOrdersFail
+    supplierOrdersFail,
+    orderDetailFail,
+    orderDetailRequest,
+    orderDetailSuccess,
 
 } from '../slice/orderSlice';
 
@@ -48,5 +51,14 @@ export const supplierOrders =  async(dispatch) => {
        dispatch(supplierOrdersSuccess(data))
     } catch (error) {
         dispatch(supplierOrdersFail(error.response.data.message))
+    }
+}
+export const orderDetail = id=> async(dispatch) => {
+    try {
+       dispatch(orderDetailRequest())
+       const {data} = await axios.get(`/api/order/${id}`)
+       dispatch(orderDetailSuccess(data))
+    } catch (error) {
+        dispatch(orderDetailFail(error.response.data.message))
     }
 }

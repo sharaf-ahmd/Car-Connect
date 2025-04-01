@@ -105,23 +105,23 @@
 
 
 /*search start*/
-.search{
+.search-rifky{
   background: var(--darkgrey);
   border-radius: 6px;
   padding: 7px;
 }
-.search-container{
+.search-container-rifky{
   border: 2px solid var(--lightgrey);
   border-radius: 6px ;
   display: flex;
 }
-.search-box{
+.search-box-rifky{
   margin-top: 0px;
   width: 1300px;
   border: none;
   border-radius: 8px 0px 0px 8px;
 }
-.button{
+.button-rifky{
   border:none;
   background: var(--lightgrey);
  color: white;
@@ -684,7 +684,7 @@ margin: 20px auto 5px auto ;
 
     /*search start*/
 
-    .search-box{
+    .search-box-rifky{
       width: 330px;
   }
   /*search end*/   
@@ -875,7 +875,7 @@ margin: 20px auto 5px auto ;
 
     /*search start*/
 
-    .search-box{
+    .search-box-rifky{
       width: 255px;
   }
   /*search end*/   

@@ -24,10 +24,10 @@ const Search = () => {
 
   return (
     <form onSubmit={searchHandler}>
-       <div className="search">
-        <div className="search-container">
-          <input className="search-box" value={keyword} onChange={(e)=>{setKeyword(e.target.value)}} type="text" placeholder="Search Product..." />
-          <button className="button" type="submit">
+       <div className="search-rifky">
+        <div className="search-container-rifky">
+          <input className="search-box-rifky" value={keyword} onChange={(e)=>{setKeyword(e.target.value)}} type="text" placeholder="Search Product..." />
+          <button className="button-rifky" type="submit">
           <IoSearch  
                         color={'#f8f8f6'}
                         size="1.4em"

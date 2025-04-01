@@ -33,7 +33,7 @@ const ConfirmOrder = () => {
                 
                 <p className="shippingdetails" style={{ color: '#f8f8f6' }}>Name: <b>{user.name}</b></p>
                 
-                <p className="shippingdetails" style={{ color: '#f8f8f6', margin: '10px 0' }}>Address: <b>{shippingInfo.address}</b></p>
+                <p className="shippingdetails" style={{ color: '#f8f8f6', margin: '10px 0' }}>Address: <b>{shippingInfo.address}, {shippingInfo.city}, {shippingInfo.district}</b></p>
                 
                 <p className="shippingdetails" style={{ color: '#f8f8f6' }}>Phone Number: <b>{shippingInfo.phoneNo}</b></p><br/>
 
