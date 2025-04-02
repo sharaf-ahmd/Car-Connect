@@ -33,6 +33,20 @@ import ProducSearch from './Market/ProducSearch.jsx'
 import SupplierProductList from './Market/SupplierProductList.jsx'
 import SparePartsOrders from './Market/SparePartsOrders.jsx'
 import SupplierSparePartsOrders from './Market/SupplierSparePartsOrders.jsx'
+import OrderDetail from './Market/OrderDetail.jsx'
+
+import ViewServices from './CarRepair/pages/viewServices.jsx'
+import ContactUs from './CarRepair/pages/ContactUs.jsx'
+import ManageBookings from './CarRepair/pages/ManageBookings.jsx'
+import CreatePage from './CarRepair/pages/CreatePage.jsx'
+import AboutUs from './CarRepair/pages/AboutUs.jsx'
+import MechanicDash from './CarRepair/pages/MechanicDash'
+import UserDash from './CarRepair/pages/UserDash'
+import Operations from './CarRepair/components/Operations'
+import UpdateService from './CarRepair/pages/UpdateService'
+import Booking from './CarRepair/pages/booking'
+import UpdateBooking from './CarRepair/pages/UpdateBooking'
+import Nav from './CarRepair/components/Navbar.jsx'
 
 import axios from 'axios'
 function App() {
@@ -58,8 +72,21 @@ function App() {
         <Routes>
           {/* CarRepair routes */}
           
+          <Route path="/view/service" element={<ProtectedRoute ><ViewServices/></ProtectedRoute>}/>
+          <Route path="/manage/booking" element={<ProtectedRoute><ManageBookings/></ProtectedRoute>} />
+        <Route path="/update/service" element={<ProtectedRoute><UpdateService /></ProtectedRoute>} />
+        <Route path="/user/dash" element={<ProtectedRoute><UserDash /></ProtectedRoute>} />
+        <Route path="/booking" element={<ProtectedRoute><Booking /></ProtectedRoute>} />
+        <Route path='/about/us' element={<AboutUs/>} />
+        <Route path='/operations' element={<ProtectedRoute><Operations/></ProtectedRoute>} />
+        <Route path="/create/page" element={<ProtectedRoute><CreatePage/></ProtectedRoute>} />
+        <Route path="/contact/us" element={<ContactUs/>} />
+        <Route path="/mech/dash" element={<ProtectedRoute><MechanicDash /></ProtectedRoute>} />
+        <Route path="/update/booking" element={<ProtectedRoute><UpdateBooking /></ProtectedRoute>} />
+        
           
         </Routes>
+        
 
         <Routes>
           {/* CarWash routes */}
@@ -84,6 +111,7 @@ function App() {
           <Route path='/supplier/products' element={<ProtectedRoute isSupplier={true}><SupplierProductList/></ProtectedRoute> } />
           <Route path='/spareparts/orders' element={<ProtectedRoute isAdmin={true}><SparePartsOrders/></ProtectedRoute> } />
           <Route path='/supplier/spareparts/orders' element={<ProtectedRoute isSupplier={true}><SupplierSparePartsOrders/></ProtectedRoute> } />
+          <Route path='/admin/order/detail/:id' element={<ProtectedRoute isAdmin={true}><OrderDetail/></ProtectedRoute> } />
           
             
         </Routes>

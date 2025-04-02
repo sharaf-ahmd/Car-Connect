@@ -54,7 +54,7 @@ const SparePartsOrders = () => {
                 actions: (
                     <Fragment >
                         <div className="tablefrag">
-                        <Link className='edit' to={`/`} ><FaPen size="1.3em"/> </Link>
+                        <Link className='edit' to={`/admin/order/detail/${order._id}`} ><FaPen size="1.3em"/> </Link>
                         <p className="deleteProduct" onClick={e => deleteHandler(e, order._id)} >
                            <IoTrashBin size="1.3em"/>
                         </p>
