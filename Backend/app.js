@@ -9,6 +9,8 @@ const order=require('./routes/MarketRoutes/order.js')
 const payment=require('./routes/MarketRoutes/paymentRoutes.js')
 const repairSharaf=require('./routes/CarRepairRoutes/Service.route.js')
 const bookingsharaf=require('./routes/CarRepairRoutes/Booking.route.js')
+const yassientowing=require('./routes/TowingRoutes/towing_service.route.js')
+const yassienuserDetail=require('./routes/TowingRoutes/userDetail.route.js')
 app.use(express.json())
 app.use(cookieParser())
 
@@ -21,4 +23,6 @@ app.use('/',order);
 app.use('/',payment);
 app.use('/',repairSharaf);
 app.use('/',bookingsharaf);
+app.use('/',yassientowing);
+app.use('/',yassienuserDetail);
 module.exports=app;

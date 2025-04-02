@@ -14,7 +14,6 @@ exports.getBooking = async (req, res) => {
   
   exports.createbooking = async (req, res) => {
     const booking = req.body;
-    console.log('data recieved',booking)
     
       booking.date = new Date(booking.date)
       if (isNaN(booking.date)) {
