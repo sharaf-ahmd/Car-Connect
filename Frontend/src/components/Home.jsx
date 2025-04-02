@@ -77,7 +77,7 @@ const Home = () => {
         </div>
         <div className="row1">
           <div className="col1_service"> 
-            <Link className="service_list" to="/">
+            <Link className="service_list" to="/home">
             <span className="no">04</span><br/>
             Towing <br/>
             <p className="quote">
@@ -87,7 +87,7 @@ const Home = () => {
            
           </div>
           <div className="col1_service">
-            <Link className="service_list" to="/">
+            <Link className="service_list" to="/user/dash">
             <span className="no">05</span> <br/>
            Engine Repair <br/>
            <p className="quote">
@@ -97,7 +97,7 @@ const Home = () => {
            
           </div>
           <div className="col1_service">
-            <Link className="service_list" to="/">
+            <Link className="service_list" to="/user/dash">
             <span className="no">06</span> <br/>
             Electrical Repair <br/>
             <p className="quote">

@@ -26,7 +26,7 @@ export const useServiceStore = create((set) => ({
     },
 
     fetchServices: async() => {
-        const res = await fetch("/api/services");
+        const res = await fetch("/api/service");
         const data = await res.json();
         set({services: data.data});
     },

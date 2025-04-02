@@ -46,7 +46,11 @@ import Operations from './CarRepair/components/Operations'
 import UpdateService from './CarRepair/pages/UpdateService'
 import Booking from './CarRepair/pages/booking'
 import UpdateBooking from './CarRepair/pages/UpdateBooking'
-import Nav from './CarRepair/components/Navbar.jsx'
+
+import HomePage from './Towing/pages/HomePage.jsx'
+import CreateTowing from './Towing/pages/CreatePage.jsx'
+import UserTowingHome from './Towing/pages/UserTowingHome.jsx'
+import UserTowingForm from './Towing/pages/UserTowingForm.jsx'
 
 import axios from 'axios'
 function App() {
@@ -125,6 +129,10 @@ function App() {
 
         <Routes>
           {/* Towing routes */}
+          <Route path="/home" element={<ProtectedRoute><HomePage/></ProtectedRoute>}/>
+          <Route path="/ct" element={<ProtectedRoute><CreateTowing/></ProtectedRoute>}/>
+          <Route path="/utf/:id" element={<ProtectedRoute><UserTowingForm/></ProtectedRoute>}/>
+          <Route path="/uth" element={<ProtectedRoute><UserTowingHome/></ProtectedRoute>}/>
         </Routes>
         <Footer />
       </HelmetProvider>

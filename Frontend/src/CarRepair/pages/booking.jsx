@@ -3,7 +3,7 @@ import { Box, Button, Container, Heading, Input, VStack } from '@chakra-ui/react
 import { useLocation, useNavigate } from 'react-router-dom';
 import React, { useState } from 'react';
 import { useBookingStore } from '../store/booking';
-import Nav from '../components/Navbar'
+
 
 const Booking = () => {
   const location = useLocation();
@@ -98,7 +98,7 @@ const Booking = () => {
 
   return (
     <div>
-    <Nav />
+    
     <div style={style.container}>
       <h1 style={style.heading}>Make Booking</h1>
       <div style={style.formContainer}>

@@ -11,7 +11,7 @@ const UpdateBooking = () => {
     try {
       await UpdateBooking(newBooking._id, newBooking);
       toast.success("Booking updated successfully! 🎉"); 
-      navigate('/managebooking')
+      navigate('/manage/booking')
     } catch (error) {
       toast.error("Failed to update booking. Try again! ❌");
       console.error("Failed to update booking", error);
@@ -85,7 +85,7 @@ const UpdateBooking = () => {
 
   
   return (
-    <div className=""><Nav></Nav>
+    <div className="">
     <div style={style.container}>
       <h1 style={style.heading}>Update Booking</h1>
       <div style={style.formContainer}>

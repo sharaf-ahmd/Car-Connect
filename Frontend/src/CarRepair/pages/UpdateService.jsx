@@ -74,7 +74,7 @@ const UpdateService = () => {
 
   
   return (
-    <div className=""><Nav></Nav>
+    <div className="">
     <div style={style.container}>
       <h1 style={style.heading}>Update Service</h1>
       <div style={style.formContainer}>

@@ -4,6 +4,7 @@ import { useBookingStore } from '../store/booking';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Nav from '../components/Navbar'
+import { color } from 'framer-motion';
 
 const ManageBookings = () => {
 
@@ -33,7 +34,7 @@ const ManageBookings = () => {
   };
 
   return (
-    <div className=""><Nav></Nav>
+    <div className="">
     <div style={styles.container}>
       <table style={styles.table}>
         <thead style={styles.thead}>
@@ -106,6 +107,7 @@ const styles = {
     padding: '10px',
     fontSize: '16px',
     textAlign: 'center',
+    color:'white'
   },
   button: {
     color: 'white',
