@@ -4,7 +4,7 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from 'react-router-dom';
 import { color } from 'framer-motion';
-import Nav from '../components/Navbar'
+
 
 
 const CreatePage = () => {
@@ -84,7 +84,7 @@ const CreatePage = () => {
   };
 
   return (
-    <div className=""><Nav></Nav>
+    <div className="">
     <div style={style.container}>
       <h1 style={style.heading}>Create New Service</h1>
       <div style={style.formContainer}>

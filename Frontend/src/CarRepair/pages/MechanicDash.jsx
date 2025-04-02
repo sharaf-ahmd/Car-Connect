@@ -33,7 +33,7 @@ const MechanicDash = () => {
   ];
 
   return (
-    <div className=""><Nav></Nav>
+    <div className="">
     <div style={styles.container}>
       <h1 style={styles.heading}>Mechanic Dashboard</h1>
       <div style={styles.flexContainer}>

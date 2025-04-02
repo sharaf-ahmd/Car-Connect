@@ -4,6 +4,7 @@ import image2 from '../assets/mb.jpg';
 import image4 from '../assets/his.jpg';
 import logout from '../assets/lg.png';
 import Nav from '../components/Navbar'
+import { Link } from 'react-router-dom';
 
 const UserDash = () => {
   const Operations = [
@@ -32,7 +33,7 @@ const UserDash = () => {
   ];
 
   return (
-    <div className=""><Nav></Nav>
+    <div className="">
     <div style={styles.container}>
       <h1 style={styles.heading}>User Dashboard</h1>
       <div style={styles.flexContainer}>
@@ -42,7 +43,7 @@ const UserDash = () => {
             <div style={styles.cardBody}>
               <h2 style={styles.cardTitle}>{operation.title}</h2>
               <p style={styles.cardDescription}>{operation.description}</p>
-              <a href={operation.to} style={styles.button}>{operation.buttonText}</a>
+              <Link to={operation.to} style={styles.button}>{operation.buttonText}</Link>
             </div>
           </div>
         ))}

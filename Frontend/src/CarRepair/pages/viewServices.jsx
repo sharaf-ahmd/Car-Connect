@@ -44,7 +44,7 @@ const UserDash = () => {
     return (
         <div className="">
 
-       <Nav></Nav>
+       
         <div style={styles.dashboardContainer}>
             <div style={styles.dashboardContent}>
                 <ServiceSearch 
