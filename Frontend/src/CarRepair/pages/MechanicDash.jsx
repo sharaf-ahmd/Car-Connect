@@ -58,6 +58,7 @@ const styles = {
     margin: 'auto',
     padding: '20px',
     textAlign: 'center',
+    minHeight:'600px'
   },
   heading: {
     fontSize: '30px',
@@ -94,6 +95,7 @@ const styles = {
     marginBottom: '10px',
     fontSize: '18px',
     fontWeight: 'bold',
+    color:'white',
   },
   cardDescription: {
     fontSize: '14px',

@@ -82,10 +82,12 @@ const ManageBookings = () => {
 const styles = {
   container: {
     padding: '10px',
+    minHeight:'600px'
   },
   table: {
     marginTop:'30px',
-    width: '100%',
+    width: '80%',
+    marginLeft:'150px',
     borderCollapse: 'collapse',
     borderRadius: '10px',
     overflow: 'hidden',

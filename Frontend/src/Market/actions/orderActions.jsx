@@ -14,6 +14,12 @@ import { createOrderRequest,
     orderDetailFail,
     orderDetailRequest,
     orderDetailSuccess,
+    userOrdersFail,
+    userOrdersRequest,
+    userOrdersSuccess,
+    updateOrdersFail,
+    updateOrdersRequest,
+    updateOrdersSuccess
 
 } from '../slice/orderSlice';
 
@@ -60,5 +66,24 @@ export const orderDetail = id=> async(dispatch) => {
        dispatch(orderDetailSuccess(data))
     } catch (error) {
         dispatch(orderDetailFail(error.response.data.message))
+    }
+}
+export const userOrders =  async(dispatch) => {
+    try {
+       dispatch(userOrdersRequest())
+       const {data} = await axios.get(`/api/myorder`)
+       dispatch(userOrdersSuccess(data))
+    } catch (error) {
+        dispatch(userOrdersFail(error.response.data.message))
+    }
+}
+
+export const updateOrder = (id,orderData)=> async(dispatch) => {
+    try {
+       dispatch(updateOrdersRequest())
+       const {data} = await axios.put(`/api/admin/order/${id}`,orderData)
+       dispatch(updateOrdersSuccess(data))
+    } catch (error) {
+        dispatch(updateOrdersFail(error.response.data.message))
     }
 }

@@ -26,7 +26,7 @@ import {Elements} from '@stripe/react-stripe-js'
 import { loadStripe } from '@stripe/stripe-js'
 import OrderSuccess from './Market/OrderSuccess.jsx'
 import SupplierDashboard from './Market/SupplierDashboard.jsx'
-import AdminDAshboard from './Market/AdminDAshboard.jsx'
+import AdminDAshboard from './Market/AdminDashboard.jsx'
 import AdminProductList from './Market/AdminProductList.jsx'
 import UpdateProduct from './Market/UpdateProduct.jsx'
 import ProducSearch from './Market/ProducSearch.jsx'
@@ -34,6 +34,8 @@ import SupplierProductList from './Market/SupplierProductList.jsx'
 import SparePartsOrders from './Market/SparePartsOrders.jsx'
 import SupplierSparePartsOrders from './Market/SupplierSparePartsOrders.jsx'
 import OrderDetail from './Market/OrderDetail.jsx'
+import UserOrders from './Market/UserOrders.jsx'
+import AdminUpdateOrder from './Market/AdminUpdateOrder.jsx'
 
 import ViewServices from './CarRepair/pages/viewServices.jsx'
 import ContactUs from './CarRepair/pages/ContactUs.jsx'
@@ -87,6 +89,7 @@ function App() {
         <Route path="/contact/us" element={<ContactUs/>} />
         <Route path="/mech/dash" element={<ProtectedRoute><MechanicDash /></ProtectedRoute>} />
         <Route path="/update/booking" element={<ProtectedRoute><UpdateBooking /></ProtectedRoute>} />
+
         
           
         </Routes>
@@ -115,9 +118,11 @@ function App() {
           <Route path='/supplier/products' element={<ProtectedRoute isSupplier={true}><SupplierProductList/></ProtectedRoute> } />
           <Route path='/spareparts/orders' element={<ProtectedRoute isAdmin={true}><SparePartsOrders/></ProtectedRoute> } />
           <Route path='/supplier/spareparts/orders' element={<ProtectedRoute isSupplier={true}><SupplierSparePartsOrders/></ProtectedRoute> } />
-          <Route path='/admin/order/detail/:id' element={<ProtectedRoute isAdmin={true}><OrderDetail/></ProtectedRoute> } />
           
-            
+          <Route path='/orders' element={<ProtectedRoute><UserOrders/></ProtectedRoute> } />
+          <Route path='/order/:id' element={<ProtectedRoute><OrderDetail/></ProtectedRoute> } />
+          <Route path='/admin/update/order/:id' element={<ProtectedRoute><AdminUpdateOrder/></ProtectedRoute> } />
+
         </Routes>
 
         <Routes>

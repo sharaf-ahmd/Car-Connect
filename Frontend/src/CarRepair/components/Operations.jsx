@@ -69,13 +69,16 @@ const Operations = () => {
 const styles = {
   container: {
     padding: '10px',
+    minHeight:'600px',
+    
   },
   table: {
     marginTop:'30px',
-    width: '100%',
+    width: '80%',
     borderCollapse: 'collapse',
     borderRadius: '10px',
     overflow: 'hidden',
+    marginLeft:'150px',
     border: '2px solid #196662',
   },
   thead: {
