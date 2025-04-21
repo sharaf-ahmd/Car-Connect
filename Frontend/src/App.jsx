@@ -36,6 +36,8 @@ import SupplierSparePartsOrders from './Market/SupplierSparePartsOrders.jsx'
 import OrderDetail from './Market/OrderDetail.jsx'
 import UserOrders from './Market/UserOrders.jsx'
 import AdminUpdateOrder from './Market/AdminUpdateOrder.jsx'
+import Profile from './Profile/Profile.jsx'
+import UpdateProfile from './Profile/UpdateProfile.jsx'
 
 import ViewServices from './CarRepair/pages/viewServices.jsx'
 import ContactUs from './CarRepair/pages/ContactUs.jsx'
@@ -55,6 +57,7 @@ import UserTowingHome from './Towing/pages/UserTowingHome.jsx'
 import UserTowingForm from './Towing/pages/UserTowingForm.jsx'
 
 import axios from 'axios'
+
 function App() {
   const [stripeApiKey,setStripeApiKey]=useState("")
   useEffect(()=>{
@@ -121,13 +124,15 @@ function App() {
           
           <Route path='/orders' element={<ProtectedRoute><UserOrders/></ProtectedRoute> } />
           <Route path='/order/:id' element={<ProtectedRoute><OrderDetail/></ProtectedRoute> } />
-          <Route path='/admin/update/order/:id' element={<ProtectedRoute><AdminUpdateOrder/></ProtectedRoute> } />
+          <Route path='/admin/update/order/:id' element={<ProtectedRoute isAdmin={true}><AdminUpdateOrder/></ProtectedRoute> } />
 
         </Routes>
 
         <Routes>
           {/* Profile routes */}
           <Route path="/login" element={<Login/>}/>
+          <Route path="/update/profile" element={<UpdateProfile/>}/>
+          <Route path="/myprofile" element={<Profile/>}/>
           <Route path="/user/register" element={<UserRegister/>}/>
           <Route path="/supplier/register" element={<SupplierRegister/>}/>
         </Routes>
