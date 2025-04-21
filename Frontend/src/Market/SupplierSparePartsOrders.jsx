@@ -1,6 +1,8 @@
 import { Fragment, useEffect } from 'react'
 import { useDispatch, useSelector } from "react-redux"
 import { MDBDataTable} from 'mdbreact';
+
+import { FaPen } from "react-icons/fa";
 import {toast } from 'react-toastify'
 import '../Profile/Login.css'
 import { IoTrashBin } from "react-icons/io5";
@@ -48,12 +50,21 @@ const SupplierSparePartsOrders = () => {
           supplierOrders.forEach( order => {
               data.rows.push({
                   id: order._id,
-                  noOfItems: order.orderItems.length,
+                  noOfItems: (
+                    <ul style={{ paddingLeft: "20px" }}>
+                      {order.orderItems.map((item, idx) => (
+                        <li key={idx}>
+                          {item.product?.name} — Qty: {item.quantity} — ${item.product?.price}
+                        </li>
+                      ))}
+                    </ul>
+                  ),
                   amount : `$${order.totalPrice}`,
                   status: <p style={{color: order.orderStatus.includes('Processing') ? 'red' : 'green'}}>{order.orderStatus}</p> ,
                   actions: (
                       <Fragment >
                           <div className="tablefrag">
+                          
                           <p className="deleteProduct" onClick={e => deleteHandler(e, order._id)} >
                              <IoTrashBin size="1.3em"/>
                           </p>

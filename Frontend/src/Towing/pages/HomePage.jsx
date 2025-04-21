@@ -3,6 +3,7 @@ import { useTowingServiceStore } from '../store/towingService';
 import React, { useEffect } from 'react';
 import TowingServiceCard from '../components/TowingServiceCArd';
 import styles from './homePage.module.css'; // Import custom CSS file
+import Nav from '../components/Navbar.jsx'
 
 const HomePage = () => {
   const { fetchTowingServices, towingServices } = useTowingServiceStore();
@@ -20,6 +21,8 @@ const HomePage = () => {
   console.log("towing services", towingServices);
 
   return (
+    <div className="">
+    <Nav />
     <div className={styles.homeContainer}>
       <div className={styles.heading}>
         <h1>Current Towing Services</h1>
@@ -52,6 +55,7 @@ const HomePage = () => {
           </Link>
         </p>
       )}
+    </div>
     </div>
   );
 };
