@@ -15,7 +15,7 @@ router.route('/api/order/:id').get(isAuthenticatedUser,getSingleOrder);
 router.route('/api/myorder').get(isAuthenticatedUser,myOrders);
 
 router.route('/api/admin/orders').get(isAuthenticatedUser,authorizeRoles('admin'),orders);
-router.route('/api/admin/order/:id').put(isAuthenticatedUser,authorizeRoles('admin','supplier'),updateOrder);
+router.route('/api/admin/order/:id').put(isAuthenticatedUser,authorizeRoles('admin'),updateOrder);
 
 router.route('/api/admin/delete/order/:id').delete(isAuthenticatedUser,authorizeRoles('admin'),deleteOrder);
 
