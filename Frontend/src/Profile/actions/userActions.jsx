@@ -13,7 +13,10 @@ import {
     supplierRegisterSuccess,
     loadUserFail,
     loadUserRequest,
-    loadUserSuccess
+    loadUserSuccess,
+    updateProfileFail,
+    updateProfileRequest,
+    updateProfileSuccess
 } from '../slice/userSlice';
 
 import axios from 'axios';
@@ -75,5 +78,17 @@ export const loadUser=async(dispatch)=>{
         dispatch(loadUserSuccess(data))
     } catch (error) {
         dispatch(loadUserFail(error.response.data.message))
+    }
+}
+export const updateProfile=(userData)=>async (dispatch)=>{
+    try {
+        dispatch(updateProfileRequest())
+        
+        
+        const {data}=await axios.put(`/api/update`,userData)
+        console.log(data.name)
+        dispatch(updateProfileSuccess(data))
+    } catch (error) {
+        dispatch(updateProfileFail(error.response.data.message))
     }
 }

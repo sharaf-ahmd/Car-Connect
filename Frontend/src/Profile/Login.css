@@ -622,6 +622,38 @@ margin: 20px auto 5px auto ;
   background: var(--red);
 }
 
+/*profile start*/
+.profile{
+  margin-left:50px ;
+}
+.profileDetails{
+  font-family: "Work Sans", serif;
+  font-optical-sizing: auto;
+  font-weight:400;
+  font-size: 20px;
+  margin-top: 10px;
+  color: var(--white);
+}
+.profilebutton{
+  background: var(--red);
+  width: 200px;
+  padding: 10px;
+  margin-top: 20px;
+  text-align: center;
+  border-radius: 6px;
+  color: var(--white);
+  font-family: "Work Sans", serif;
+  font-optical-sizing: auto;
+  font-weight:400;
+  font-size: 20px;
+
+}
+.profilebutton:hover{
+  background: var(--white);
+  color: var(--red);
+}
+/*profile end*/
+
   @media screen and (max-width:450px){
     
     /*login start*/
