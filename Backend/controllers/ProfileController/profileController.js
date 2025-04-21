@@ -1,5 +1,6 @@
 const User =require('../../models/ProfileModel/userModel.js');
 const sendToken=require('../../utils/ProfileUtils/jasonWebToken.js')
+const crypto=require('crypto')
 
 //register user
 exports.registerUser=async(req,res,next)=>{
@@ -100,5 +101,20 @@ exports.getUserProfile=async(req,res,next)=>{
     res.status(200).json({
         success:true,
         user,
+    })
+}
+exports.updateProfile = async (req, res, next)=>{
+    let newUserData={
+        name:req.body.name
+    }
+    
+    const user=await User.findByIdAndUpdate(req.user.id,newUserData,{
+        new:true,
+        runValidators:true,
+
+    })
+    res.status(200).json({
+        success:true,
+        user
     })
 }
