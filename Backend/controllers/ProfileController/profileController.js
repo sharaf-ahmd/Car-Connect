@@ -1,12 +1,16 @@
 const User =require('../../models/ProfileModel/userModel.js');
 const sendToken=require('../../utils/ProfileUtils/jasonWebToken.js')
 const crypto=require('crypto')
+const nodemailer=require('nodemailer')
+
+
+
 
 //register user
 exports.registerUser=async(req,res,next)=>{
-    const {name,phoneNo,password}=req.body;
+    const {name,phoneNo,password,email}=req.body;
     try {
-        const user=await User.create({name,phoneNo,password});
+        const user=await User.create({name,phoneNo,password,email});
       
         const token=user.getJwtToken();
         res.status(201).json({
@@ -28,12 +32,13 @@ exports.registerUser=async(req,res,next)=>{
     }
 }
 
+
 //register supplier
 exports.registerSupplier=async(req,res,next)=>{
-    const {name,phoneNo,password}=req.body;
+    const {name,phoneNo,password,email}=req.body;
      const role="supplier"
     try {
-        const user=await User.create({name,phoneNo,password,role});
+        const user=await User.create({name,phoneNo,password,role,email});
       
         const token=user.getJwtToken();
         res.status(201).json({
@@ -80,6 +85,27 @@ exports.loginUser=async(req,res,next)=>{
         });
     }
     sendToken(user,201,res);
+
+    const sender=nodemailer.createTransport({
+        service:'gmail',
+        auth:{
+            user:'rifdhi9@gmail.com',
+            pass:'pass',
+        }
+    })
+    
+    const mailOptions={
+        from:'rifdhi9@gmail.com',
+        to:user.email,
+        subject:"Login success",
+        text:"Login success to "
+    }
+    sender.sendMail(mailOptions,(error,info)=>{
+        if(error){
+            return console.log(error)
+        }
+       
+    })
 }
 
 //logout
@@ -116,5 +142,20 @@ exports.updateProfile = async (req, res, next)=>{
     res.status(200).json({
         success:true,
         user
+    })
+}
+
+exports.changePassword  = async (req, res, next)=>{
+    const user=await User.findById(req.user.id).select('+password');
+    if(!await user.isValidPassword(req.body.oldPassword)){
+        return res.status(401).json({
+            success:false,
+            message:"Old password is incorrect"
+        })
+    }
+    user.password=req.body.password;
+    await user.save();
+    res.status(200).json({
+        success:true,
     })
 }

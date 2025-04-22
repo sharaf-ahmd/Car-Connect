@@ -20,6 +20,11 @@ const userSchema=new mongoose.Schema({
         required:true,
         select:false,
     },
+    email:{
+        type: String,
+        required: [true, 'Please enter email'],
+        validate: [validator.isEmail, 'Please enter valid email address']
+    },
     role:{
         type:String,
         default:'user',
