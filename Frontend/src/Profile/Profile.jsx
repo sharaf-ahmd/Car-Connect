@@ -11,7 +11,7 @@ const Profile = () => {
         <p className="profileDetails">Phone no : {user.phoneNo}</p>
         <p className="profileDetails">Joined : {String(user.createdAt).substring(0,10)}</p>
         <Link to="/update/profile"><p className="profilebutton">Edit Profile</p></Link>
-        <a href="#"><p className="profilebutton">Change Password</p></a>
+        <Link to="/update/password"><p className="profilebutton">Change Password</p></Link>
         
     </div>
   
