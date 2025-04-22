@@ -38,6 +38,7 @@ import UserOrders from './Market/UserOrders.jsx'
 import AdminUpdateOrder from './Market/AdminUpdateOrder.jsx'
 import Profile from './Profile/Profile.jsx'
 import UpdateProfile from './Profile/UpdateProfile.jsx'
+import UpdatePassword from './Profile/UpdatePassword.jsx'
 
 import ViewServices from './CarRepair/pages/viewServices.jsx'
 import ContactUs from './CarRepair/pages/ContactUs.jsx'
@@ -50,6 +51,7 @@ import Operations from './CarRepair/components/Operations'
 import UpdateService from './CarRepair/pages/UpdateService'
 import Booking from './CarRepair/pages/booking'
 import UpdateBooking from './CarRepair/pages/UpdateBooking'
+
 
 import HomePage from './Towing/pages/HomePage.jsx'
 import CreateTowing from './Towing/pages/CreatePage.jsx'
@@ -131,10 +133,11 @@ function App() {
         <Routes>
           {/* Profile routes */}
           <Route path="/login" element={<Login/>}/>
-          <Route path="/update/profile" element={<UpdateProfile/>}/>
+          <Route path="/update/profile" element={<ProtectedRoute><UpdateProfile/></ProtectedRoute>}/>
           <Route path="/myprofile" element={<Profile/>}/>
           <Route path="/user/register" element={<UserRegister/>}/>
           <Route path="/supplier/register" element={<SupplierRegister/>}/>
+          <Route path="/update/password" element={<ProtectedRoute><UpdatePassword/></ProtectedRoute>}/>
         </Routes>
 
         <Routes>
