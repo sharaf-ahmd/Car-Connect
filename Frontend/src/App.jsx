@@ -39,6 +39,8 @@ import AdminUpdateOrder from './Market/AdminUpdateOrder.jsx'
 import Profile from './Profile/Profile.jsx'
 import UpdateProfile from './Profile/UpdateProfile.jsx'
 import UpdatePassword from './Profile/UpdatePassword.jsx'
+import ForgotPassword from './Profile/ForgotPassword.jsx'
+import ResetPassword from './Profile/ResetPassword.jsx'
 
 import ViewServices from './CarRepair/pages/viewServices.jsx'
 import ContactUs from './CarRepair/pages/ContactUs.jsx'
@@ -127,6 +129,7 @@ function App() {
           <Route path='/orders' element={<ProtectedRoute><UserOrders/></ProtectedRoute> } />
           <Route path='/order/:id' element={<ProtectedRoute><OrderDetail/></ProtectedRoute> } />
           <Route path='/admin/update/order/:id' element={<ProtectedRoute isAdmin={true}><AdminUpdateOrder/></ProtectedRoute> } />
+          
 
         </Routes>
 
@@ -138,6 +141,8 @@ function App() {
           <Route path="/user/register" element={<UserRegister/>}/>
           <Route path="/supplier/register" element={<SupplierRegister/>}/>
           <Route path="/update/password" element={<ProtectedRoute><UpdatePassword/></ProtectedRoute>}/>
+          <Route path="/forgot/password" element={<ForgotPassword/>}/>
+          <Route path="/password/reset/:token" element={<ResetPassword/>}/>
         </Routes>
 
         <Routes>

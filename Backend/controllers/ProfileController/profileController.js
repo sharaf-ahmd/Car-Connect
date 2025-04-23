@@ -159,3 +159,104 @@ exports.changePassword  = async (req, res, next)=>{
         success:true,
     })
 }
+
+exports.forgotPassword =  async (req, res, next)=>{
+    const user=await User.findOne({phoneNo:req.body.phoneNo});
+    if(!user) {
+        res.status(500).json({
+            success: false,
+            message: "No account with Phone number",
+        })
+        return;
+    }
+    const resettoken=user.getResetToken();
+    await user.save({validateBeforeSave:false});
+
+    const resetUrl=`${process.env.FRONTEND_URL}/password/reset/${resettoken}`;
+    const message=`your password reset token \n\n
+    ${resetUrl} \n\n
+    If you have not requested ignore`
+    try{
+        const sender=nodemailer.createTransport({
+            service:'gmail',
+            auth:{
+                user:'rifdhi9@gmail.com',
+                pass:'pass',
+            }
+        })
+        
+        const mailOptions={
+            from:'rifdhi9@gmail.com',
+            to:user.email,
+            subject:"Password Reset",
+            text:`${message}`
+        }
+        sender.sendMail(mailOptions,(error,info)=>{
+            if(error){
+                return console.log(error)
+            }
+           
+        })
+        res.status(200).json({
+            success:true,
+            message:`Email sent to ${user.email}`
+        })
+        
+    }catch(err){
+        user.resetPasswordToken=undefined;
+        user.resetPasswordTokenExpire=undefined;
+        await user.save({validateBeforeSave:false});
+        
+        res.status(500).json({
+            success: false,
+            message: "No account with Phone number",
+        })
+    }
+}
+exports.resetPassword =  async (req, res, next)=>{
+    const resetPasswordToken=crypto.createHash('sha256').update(req.params.token).digest('hex');
+    const user=await User.findOne({
+        resetPasswordToken,
+        resetPasswordTokenExpire:{
+            $gt:Date.now()
+        }
+    })
+    if(!user) {
+        res.status(500).json({
+            success: false,
+            message: "Password reset token is invalid or expired",
+        })
+        return;
+        
+    }
+    if(req.body.password!==req.body.confirmPassword){
+        res.status(500).json({
+            success: false,
+            message: "Password does not match",
+        })
+        return 
+    }
+
+    user.password=req.body.password;
+    user.resetPasswordToken=undefined
+    user.resetPasswordTokenExpire=undefined
+    await user.save({validateBeforeSave:false})
+    const token=user.getJwtToken();
+    
+    
+       const options ={
+            expires:new Date(
+                Date.now() + process.env.COOKIE_EXPIRES_TIME*24*60*60*1000
+            ),
+            httpOnly:true,
+        
+        }
+        res.status(201)
+        .cookie('token',token,options)
+        .json({
+            success:true,
+            user,
+            token
+            
+        })
+}

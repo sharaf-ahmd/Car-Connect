@@ -49,7 +49,7 @@ const Login = () => {
                 <br/><br/>
                 <input type="submit" className="submit" value="Login"/>
                 
-            <a href="forgotPassword.html"><p className="forgot">Forgot Password ?</p></a>
+            <Link to="/forgot/password"><p className="forgot">Forgot Password ?</p></Link>
             <Link  to="/user/register"><p className="dont">Don't have an account ?</p></Link>
             
               </form>

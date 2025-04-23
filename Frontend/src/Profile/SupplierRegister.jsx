@@ -11,7 +11,8 @@ const SupplierRegister = () => {
   const [userData,setUserData]=useState({
     name:"",
     phoneNo:"",
-    password:""
+    password:"",
+    email:""
   })
   const dispatch=useDispatch();
   const navigate=useNavigate();
@@ -42,6 +43,7 @@ const SupplierRegister = () => {
       name: userData.name,
       phoneNo: userData.phoneNo,
       password: userData.password,
+      email:userData.email
     };
   
     dispatch(supplierRegister(data));
@@ -77,7 +79,11 @@ const SupplierRegister = () => {
             
             <label className="label" htmlFor="phone">Phone</label><br/>
             <input type="tel" id='phone' name='phoneNo' onChange={onChange} required placeholder="077 111 2255"/><br/><br/>
+            
+            <label className="label"  htmlFor="email">Email</label><br/>
+            <input type="email" name='email' onChange={onChange} id="email" required placeholder="hello@gmail.com"/><br/><br/>
             <label className="label"  htmlFor="password">Password</label><br/>
+            
             <input type="password" name='password' onChange={onChange} id="password" required placeholder="Enter Password"/><br/><br/>
             <label className="label"  htmlFor="confirmPassword">Confirm Password</label><br/>
             <input type="password" name='confirmPassword' onChange={onChange} id="confirmPassword" required placeholder="Confirm Password"/>
