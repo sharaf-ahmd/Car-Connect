@@ -6,6 +6,8 @@ const {registerUser,
     getUserProfile,
     updateProfile,
     changePassword,
+    forgotPassword,
+    resetPassword
     
 }=require('../../controllers/ProfileController/profileController.js')
 const router=express.Router();
@@ -18,5 +20,6 @@ router.route('/api/logout').get(logoutUser);
 router.route('/api/myprofile').get(isAuthenticatedUser,getUserProfile);
 router.route('/api/update').put(isAuthenticatedUser,updateProfile);
 router.route('/api/password/change').put(isAuthenticatedUser,changePassword);
-
+router.route('/api/password/forgot').post(forgotPassword);
+router.route('/api/password/reset/:token').post(resetPassword);
 module.exports=router;
