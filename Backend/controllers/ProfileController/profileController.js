@@ -260,3 +260,50 @@ exports.resetPassword =  async (req, res, next)=>{
             
         })
 }
+
+exports.getAllUsers=async(req,res,next)=>{
+    const users=await User.find()
+    res.status(200).json({
+        success:true,
+        users
+    })
+}
+
+//get specific user
+exports.getUser=async(req,res,next)=>{
+    const user=await User.findById(req.params.id)
+    if(!user) {
+        return next(new ErrorHandler(`User not found with this id ${req.params.id}`))
+    }
+    res.status(200).json({
+        success:true,
+        user
+    })
+}
+
+exports.updateUser=async(req,res,next)=>{
+    const newUserData={
+        role:req.body.role
+    }
+    const user=await User.findByIdAndUpdate(req.params.id,newUserData,{
+        new:true,
+        runValidators:true,
+
+    })
+    res.status(200).json({
+        success:true,
+        user
+    })
+}
+
+
+exports.deleteUser=async(req,res,net)=>{
+    const user=await User.findById(req.params.id);
+    if(!user) {
+        return next(new ErrorHandler(`User not found with this id ${req.params.id}`))
+    }
+    await User.findByIdAndDelete(req.params.id);
+    res.status(200).json({
+        success:true
+    })
+}

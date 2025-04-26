@@ -4,15 +4,17 @@ import {useDispatch, useSelector} from 'react-redux';
 import { useEffect } from "react";
 import {getAdminProducts} from './actions/productActions'
 import { adminOrders as adminOrdersAction } from './actions/orderActions';
+import {getUsers} from '../Profile/actions/userActions'
 const AdminDAshboard = () => {
   const { products = [] } = useSelector( state => state.productState);
   const { adminOrders = [] } = useSelector( state => state.orderState);
+  const { users = [] } = useSelector( state => state.authState);
+  const dispatch = useDispatch();
     
-    const dispatch = useDispatch();
-    
-   useEffect( () => {
+  useEffect( () => {
     dispatch(getAdminProducts);
     dispatch(adminOrdersAction);
+    dispatch(getUsers);
    
   }, [])
   return (
@@ -30,24 +32,23 @@ const AdminDAshboard = () => {
             </p></Link>
           </div>
           <div className="col1_service">
-            <a className="service_list" href="a.hml">
-            <span className="no"> Spareparts Suppliers </span> <br/>
+            <Link className="service_list" to="/admin/user/list">
+            <span className="no">Users </span> <br/>
            
             <p className="quote">
               
-              10 Suppliers
-              </p></a>
+              {users.length} Users              </p></Link> 
             
           </div>
           <div className="col1_service">
-            <a className="service_list" href="a.hml">
-            <span className="no">Users</span> <br/>
+            <Link className="service_list" to="/admin/supplier/list">
+            <span className="no">Supplier</span> <br/>
              
             <p className="quote">
               
-              10 Users
+              10 supplier
           
-              </p></a>
+              </p></Link>
             </div>
         </div>
 
