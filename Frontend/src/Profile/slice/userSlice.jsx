@@ -3,7 +3,10 @@ const authSlice=createSlice({
     name:'auth',
     initialState:{
         loading:false,
-        isAuthenticated:false
+        isAuthenticated:false,
+        users: [],
+        isUserUpdated: false,
+        isUserDeleted: false
     },
     reducers:{
         registerRequest(state,action){
@@ -212,6 +215,78 @@ const authSlice=createSlice({
                 error:  action.payload
             }
         },
+        usersRequest(state, action){
+            return {
+                ...state,
+                loading: true
+            }
+        },
+        usersSuccess(state, action){
+            return {
+                ...state,
+                loading: false,
+                users: action.payload.users,
+            }
+        },
+        usersFail(state, action){
+            return {
+                ...state,
+                loading: false,
+                error:  action.payload
+            }
+        },
+        deleteUserRequest(state, action){
+            return {
+                ...state,
+                loading: true
+            }
+        },
+        deleteUserSuccess(state, action){
+            return {
+                ...state,
+                loading: false,
+                isUserDeleted : true
+            }
+        },
+        deleteUserFail(state, action){
+            return {
+                ...state,
+                loading: false,
+                error:  action.payload
+            }
+        },
+        updateUserRequest(state, action){
+            return {
+                ...state,
+                loading: true
+            }
+        },
+        updateUserSuccess(state, action){
+            return {
+                ...state,
+                loading: false,
+                isUserUpdated : true
+            }
+        },
+        updateUserFail(state, action){
+            return {
+                ...state,
+                loading: false,
+                error:  action.payload
+            }
+        },
+        clearUserDeleted(state, action){
+            return {
+                ...state,
+                isUserDeleted : false
+            }
+        },
+        clearUserUpdated(state, action){
+            return {
+                ...state,
+                isUserUpdated : false
+            }
+        },
         
     }
 })
@@ -245,6 +320,17 @@ export const{
     forgotPasswordFail,
     forgotPasswordRequest,
     forgotPasswordSuccess,
+    usersFail,
+    usersRequest,
+    usersSuccess,
+    clearUserDeleted,
+    clearUserUpdated,
+    updateUserFail,
+    updateUserRequest,
+    updateUserSuccess,
+    deleteUserFail,
+    deleteUserRequest,
+    deleteUserSuccess,
 
 }=actions;
 export default reducer;

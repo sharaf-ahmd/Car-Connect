@@ -41,6 +41,8 @@ import UpdateProfile from './Profile/UpdateProfile.jsx'
 import UpdatePassword from './Profile/UpdatePassword.jsx'
 import ForgotPassword from './Profile/ForgotPassword.jsx'
 import ResetPassword from './Profile/ResetPassword.jsx'
+import UserList from './Profile/UserList.jsx'
+
 
 import ViewServices from './CarRepair/pages/viewServices.jsx'
 import ContactUs from './CarRepair/pages/ContactUs.jsx'
@@ -143,6 +145,7 @@ function App() {
           <Route path="/update/password" element={<ProtectedRoute><UpdatePassword/></ProtectedRoute>}/>
           <Route path="/forgot/password" element={<ForgotPassword/>}/>
           <Route path="/password/reset/:token" element={<ResetPassword/>}/>
+          <Route path='/admin/user/list' element={<ProtectedRoute isAdmin={true}><UserList/></ProtectedRoute> } />
         </Routes>
 
         <Routes>

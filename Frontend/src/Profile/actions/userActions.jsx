@@ -26,6 +26,15 @@ import {
     resetPasswordFail,
     resetPasswordRequest,
     resetPasswordSuccess,
+    usersFail,
+    usersRequest,
+    usersSuccess,
+    updateUserFail,
+    updateUserRequest,
+    updateUserSuccess,
+    deleteUserFail,
+    deleteUserRequest,
+    deleteUserSuccess,
     
     
 } from '../slice/userSlice';
@@ -149,5 +158,45 @@ export const resetPassword=(formData,token)=>async (dispatch)=>{
         dispatch(resetPasswordSuccess(data))
     } catch (error) {
         dispatch(resetPasswordFail(error.response.data.message))
+    }
+}
+
+export const getUsers=async (dispatch)=>{
+    try {
+        dispatch(usersRequest())
+
+        
+        const {data}=await axios.get(`/api/admin/users`)
+        dispatch(usersSuccess(data))
+    } catch (error) {
+        dispatch(usersFail(error.response.data.message))
+    }
+}
+
+
+export const deleteUser=id=>async (dispatch)=>{
+    try {
+        dispatch(deleteUserRequest())
+
+        
+        const {data}=await axios.delete(`/api/admin/user/delete/${id}`)
+        dispatch(deleteUserSuccess(data))
+    } catch (error) {
+        dispatch(deleteUserFail(error.response.data.message))
+    }
+}
+export const updateUser=(id,formData)=>async (dispatch)=>{
+    try {
+        dispatch(updateUserRequest())
+        
+        const config={
+            headers:{
+                'Content-type':'application/json'
+            }
+        }
+        await axios.put(`/api/admin/user/update/${id}`,formData,config)
+        dispatch(updateUserSuccess())
+    } catch (error) {
+        dispatch(updateUserFail(error.response.data.message))
     }
 }
