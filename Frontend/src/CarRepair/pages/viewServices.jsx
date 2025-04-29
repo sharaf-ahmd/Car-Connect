@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useServiceStore } from '../store/service';
 import ServiceList from '../components/ServiceList';
 import ServiceSearch from '../components/ServiceSearch';
-import Nav from '../components/Navbar'
+
 
 const styles = {
     dashboardContainer: {
@@ -29,25 +29,22 @@ const UserDash = () => {
     const [searchQuery, setSearchQuery] = useState('');
     const [selectedService, setSelectedService] = useState('all');
     const { fetchServices, services } = useServiceStore();
-    
+   
     useEffect(() => {
         fetchServices();
     }, [fetchServices]);
-
+ 
     const filteredServices = services.filter(service => {
         const matchesSearch = service.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
                              service.shop.toLowerCase().includes(searchQuery.toLowerCase());
         const matchesType = selectedService === 'all' || service.type === selectedService;
         return matchesSearch && matchesType;
     });
-
+ 
     return (
-        <div className="">
-
-       
         <div style={styles.dashboardContainer}>
             <div style={styles.dashboardContent}>
-                <ServiceSearch 
+                <ServiceSearch
                     searchQuery={searchQuery}
                     setSearchQuery={setSearchQuery}
                     selectedService={selectedService}
@@ -56,8 +53,8 @@ const UserDash = () => {
                 <ServiceList services={filteredServices} />
             </div>
         </div>
-        </div>
     );
+
 };
 
 export default UserDash;

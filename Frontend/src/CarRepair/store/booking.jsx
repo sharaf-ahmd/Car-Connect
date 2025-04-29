@@ -1,5 +1,6 @@
 import {create} from 'zustand';
 
+import { useSelector } from 'react-redux';
 export const useBookingStore = create((set) => ({
     bookings: [],
     
@@ -10,6 +11,7 @@ export const useBookingStore = create((set) => ({
         if ( !newBooking.customer || !newBooking.contact || !newBooking.time || !newBooking.location) {
             return { success: false, message: 'Please fill all fields' };
         }
+        console.log()
 
 
         try {
@@ -30,10 +32,28 @@ export const useBookingStore = create((set) => ({
         }
     },
 
-    fetchBooking: async() => {
-        const res = await fetch("/api/booking");
-        const data = await res.json();
-        set({bookings: data.data});
+    fetchBooking: async (email) => {
+        
+        const userEmail = email
+        if (!userEmail) return;
+    
+        try {
+            const res = await fetch(`/api/booking?email=${userEmail}`);
+    
+            if (!res.ok) {
+                throw new Error(`Error ${res.status}: ${res.statusText}`);
+            }
+    
+            const data = await res.json();
+    
+            if (!data.success) {
+                throw new Error(data.message);
+            }
+    
+            set({ bookings: data.data });
+        } catch (error) {
+            console.error("Error fetching user bookings:", error.message);
+        }
     },
 
     deleteBooking: async (sid)=>{
@@ -45,7 +65,7 @@ export const useBookingStore = create((set) => ({
         return {success: false, message:data.message}
     }
 
-        set(state => ({booking: state.booking.filter(service=> service._id !==sid)}))
+        set(state => ({bookings: state.bookings.filter(service=> service._id !==sid)}))
         return {success: true, message:'Deleted Successfully'}
     },
 
@@ -62,7 +82,7 @@ export const useBookingStore = create((set) => ({
 
          //refresh dashboard after update operation
          set(state => ({
-             booking: state.bookings.map(booking => booking._id === sid ? data.data :booking)
+             bookings: state.bookings.map(booking => booking._id === sid ? data.data :booking)
          }))
 
 
