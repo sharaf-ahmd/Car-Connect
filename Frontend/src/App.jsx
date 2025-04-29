@@ -55,6 +55,11 @@ import Operations from './CarRepair/components/Operations'
 import UpdateService from './CarRepair/pages/UpdateService'
 import Booking from './CarRepair/pages/booking'
 import UpdateBooking from './CarRepair/pages/UpdateBooking'
+import CheckoutForm from './CarRepair/pages/CheckoutForm.jsx'
+import Return from './CarRepair/pages/Return'
+import SuccessPAge from './CarRepair/pages/Success'
+import Inquiries from './CarRepair/pages/Inquiry.jsx'
+import AdminInquiries from './CarRepair/pages/AdminInquiry.jsx'
 
 
 import HomePage from './Towing/pages/HomePage.jsx'
@@ -98,6 +103,11 @@ function App() {
         <Route path="/contact/us" element={<ContactUs/>} />
         <Route path="/mech/dash" element={<ProtectedRoute><MechanicDash /></ProtectedRoute>} />
         <Route path="/update/booking" element={<ProtectedRoute><UpdateBooking /></ProtectedRoute>} />
+        <Route path="/checkout" element={<ProtectedRoute><CheckoutForm /></ProtectedRoute>} />
+         <Route path="/return" element={<ProtectedRoute><Return /></ProtectedRoute>} />
+         <Route path="/success" element={<ProtectedRoute><SuccessPAge /></ProtectedRoute>} />
+         <Route path="/inquiries" element={<ProtectedRoute><Inquiries /></ProtectedRoute>} />
+         <Route path="/admin/inquiries" element={<ProtectedRoute><AdminInquiries /></ProtectedRoute>} />
 
         
           
