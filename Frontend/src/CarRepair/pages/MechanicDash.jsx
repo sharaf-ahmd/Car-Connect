@@ -23,11 +23,11 @@ const MechanicDash = () => {
       to: '/operations',
     },
     {
-      title: 'View Bookings',
-      description: 'Easily manage your bookings by updating appointment details or canceling unnecessary ones.',
-      buttonText: 'View Now',
+      title: 'Manage inquires',
+       description: 'Manage your inquiries effortlessy, to improve customer satisfaction.',
+       buttonText: 'Add Now',
       image: image4,
-      to: '',
+      to: '/admin/inquiries'
     },
    
   ];

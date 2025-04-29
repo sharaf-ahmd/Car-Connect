@@ -23,11 +23,11 @@ const UserDash = () => {
         to: '/manage/booking',
       },
       {
-        title: 'View Bookings',
-        description: 'Check the details of your upcoming and past bookings at a glance for better service management.',
-        buttonText: 'View Now',
+        title: 'Make Inquiries',
+         description: 'Submit your inquiries and track their status. Get timely responses and stay informed about your requests.',
+         buttonText: 'Make Now',
         image: image4,
-        to: '',
+        to: '/inquiries',
       },
    
   ];

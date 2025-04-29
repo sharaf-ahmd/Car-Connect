@@ -1,39 +1,29 @@
-import { useColorModeValue } from '../components/ui/color-mode'
-import { Box, Button, Container, Heading, Input, VStack } from '@chakra-ui/react'
 import { useLocation, useNavigate } from 'react-router-dom';
 import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
+import { loadStripe } from '@stripe/stripe-js';
 import { useBookingStore } from '../store/booking';
+const stripePromise = loadStripe('pk_test_51RGhSzFNC9lumuod1YciBcs8fWrnrUvUUznVMpl4FITPAzpTFLzcdBMEeXs9QMu0t63bQwEEnHsHFo6IlR1FT8uI00lTPccNmm');
+
 
 
 const Booking = () => {
   const location = useLocation();
+  const { createBooking } = useBookingStore();
   const navigate = useNavigate();
-
-  // Getting the selected service details from the previous page
+  const { user } = useSelector(state => state.authState);
   const service = location.state?.service;
 
-  // State to store user booking details
-
-  const { createBooking } = useBookingStore();
-
-  const handleBooking = async () => {   
-
-    const { success, message } = await createBooking(bookingDetails);
-    console.log(success, message);
-    console.log('data sent',bookingDetails)
-    setBookingDetails({ customer: '', contact: '', location: '', date: '', time: ''});
-    navigate('/manage/booking')
-  };
- 
   const [bookingDetails, setBookingDetails] = useState({
     customer: '',
     contact: '',
     date: '',
     time: '', 
-    location:'',
+    location: '',
     service: service?.name,     
     vendor: service?.vendor,    
-    price: service?.price
+    price: service?.price,
+    email: user.email
   });
 
   const handleChange = (e) => {
@@ -43,6 +33,40 @@ const Booking = () => {
       [name]: value,
     }));
   };
+
+  const handlePayment = async () => {
+    
+    try {
+      const response = await fetch("http://localhost:3000/api/create/checkout/session", {
+        
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ bookingDetails }),
+      });
+
+      const data = await response.json();
+      
+      if (!data.id) {
+        throw new Error("Failed to create checkout session");
+      }
+      localStorage.setItem('bookingDetails', JSON.stringify(bookingDetails));
+
+      const stripe = await stripePromise;
+      const { error } = await stripe.redirectToCheckout({ sessionId: data.id });
+
+      if (error) {
+        console.error("Stripe checkout error:", error.message);
+        alert("Error initiating payment: " + error.message);
+      }
+      
+    } catch (error) {
+      console.error("Payment initiation failed:", error);
+      alert("Something went wrong with your payment. Please try again.");
+    }
+  };
+
 
 
 
@@ -93,23 +117,19 @@ const Booking = () => {
     
     
   };
+ 
 
 
 
   return (
-    <div>
-    
     <div style={style.container}>
       <h1 style={style.heading}>Make Booking</h1>
       <div style={style.formContainer}>
         <div style={style.inputGroup}>
-
-        <div style={style.inputGroup}>
           <input
             type="text"
             value={service?.name || ''} 
-            isReadOnly
-            onChange={handleChange}
+            readOnly
             style={style.inputField}
           />
         </div>
@@ -118,8 +138,7 @@ const Booking = () => {
           <input
             type="text"
             value={service?.vendor || ''} 
-            isReadOnly
-            onChange={handleChange}
+            readOnly
             style={style.inputField}
           />
         </div>
@@ -128,15 +147,23 @@ const Booking = () => {
           <input
             type="text"
             value={`$${service?.price}`}
-             isReadOnly
-            onChange={handleChange}
+            readOnly
             style={style.inputField}
           />
         </div>
-        
 
+        <div style={style.inputGroup}>
+          <input
+            type="email"
+            name="email"
+            placeholder={user.email}
 
+            style={style.inputField}
+            readOnly
+          />
+        </div>
 
+        <div style={style.inputGroup}>
           <input
             type="text"
             name="customer"
@@ -191,12 +218,9 @@ const Booking = () => {
           />
         </div>
 
-
-       
-
-        <button style={style.button} onClick={handleBooking}>Book</button>
+        <button style={style.button} onClick={handlePayment}>Pay & Book</button>
       </div>
-    </div></div>
+    </div>
   );
 };
 

@@ -1,4 +1,3 @@
-
 function _optionalChain(ops) {
     let lastAccessLHS = undefined
     let value = ops[0]

@@ -5,16 +5,21 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Nav from '../components/Navbar'
 import { color } from 'framer-motion';
+import { useSelector } from 'react-redux';
 
 const ManageBookings = () => {
+  const { user } = useSelector(state => state.authState);
 
-   const{ fetchBooking, bookings, deleteBooking }=useBookingStore();
+  const { fetchBooking, bookings = [], deleteBooking } = useBookingStore();
+
   const navigate = useNavigate();
 
 
   useEffect(() => {
-    fetchBooking();
-  }, [fetchBooking]);
+    if (user?.email) {
+      fetchBooking(user.email); 
+    }
+  }, [user, fetchBooking]);
 
   const formatDate = (date) => {
     const options = { year: 'numeric', month: '2-digit', day: '2-digit' };
@@ -26,7 +31,7 @@ const ManageBookings = () => {
     const { success } = await deleteBooking(sid);
     if (success) {
         toast.success("Booking cancelled successfully! 🎉"); 
-        fetchBooking();
+        fetchBooking(user.email);
     } else {
       toast.error("Failed to cancel booking. Try again! ❌");
       console.error("Failed to update booking", error);
