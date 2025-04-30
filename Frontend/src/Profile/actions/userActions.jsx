@@ -35,6 +35,16 @@ import {
     deleteUserFail,
     deleteUserRequest,
     deleteUserSuccess,
+    mechanicRegisterFail,
+    mechanicRegisterRequest,
+    mechanicRegisterSuccess,
+    towingRegisterFail,
+    towingRegisterRequest,
+    towingRegisterSuccess,
+    washRegisterFail,
+    washRegisterRequest,
+    washRegisterSuccess,
+
     
     
 } from '../slice/userSlice';
@@ -65,6 +75,39 @@ export const supplierRegister=(userData)=>async(dispatch)=>{
         dispatch(supplierRegisterSuccess(data))
     }catch(error){
         dispatch(supplierRegisterFail(error.response.data.message))
+    }
+}
+
+//mechanic register
+export const mechanicRegister=(userData)=>async(dispatch)=>{
+    try{
+        dispatch(mechanicRegisterRequest())
+        const {data}=await axios.post('/api/register/mechanic',userData)
+        dispatch(mechanicRegisterSuccess(data))
+    }catch(error){
+        dispatch(mechanicRegisterFail(error.response.data.message))
+    }
+}
+
+//wash register
+export const washRegister=(userData)=>async(dispatch)=>{
+    try{
+        dispatch(washRegisterRequest())
+        const {data}=await axios.post('/api/register/carwash',userData)
+        dispatch(washRegisterSuccess(data))
+    }catch(error){
+        dispatch(washRegisterFail(error.response.data.message))
+    }
+}
+
+//towing register
+export const towingRegister=(userData)=>async(dispatch)=>{
+    try{
+        dispatch(towingRegisterRequest())
+        const {data}=await axios.post('/api/register/towing',userData)
+        dispatch(towingRegisterSuccess(data))
+    }catch(error){
+        dispatch(towingRegisterFail(error.response.data.message))
     }
 }
 
