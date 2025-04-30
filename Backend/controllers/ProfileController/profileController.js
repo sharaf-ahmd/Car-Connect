@@ -307,3 +307,80 @@ exports.deleteUser=async(req,res,net)=>{
         success:true
     })
 }
+//register supplier
+exports.registerMechanic=async(req,res,next)=>{
+    const {name,phoneNo,password,email}=req.body;
+     const role="mechanic"
+    try {
+        const user=await User.create({name,phoneNo,password,role,email});
+      
+        const token=user.getJwtToken();
+        res.status(201).json({
+            success:true,
+            user,
+            token
+        })
+    } catch (error) {
+        if (error.code === 11000) {
+            return res.status(400).json({
+                success: false,
+                message:"Phone Number already in use",
+            });
+        }
+        res.status(500).json({
+            success: false,
+            message: error,
+        });
+    }
+}
+exports.registertowing=async(req,res,next)=>{
+    const {name,phoneNo,password,email}=req.body;
+     const role="towing"
+    try {
+        const user=await User.create({name,phoneNo,password,role,email});
+      
+        const token=user.getJwtToken();
+        res.status(201).json({
+            success:true,
+            user,
+            token
+        })
+    } catch (error) {
+        if (error.code === 11000) {
+            return res.status(400).json({
+                success: false,
+                message:"Phone Number already in use",
+            });
+        }
+        res.status(500).json({
+            success: false,
+            message: error,
+        });
+    }
+}
+
+exports.registercarwash=async(req,res,next)=>{
+    const {name,phoneNo,password,email}=req.body;
+     const role="carwash"
+    try {
+        const user=await User.create({name,phoneNo,password,role,email});
+      
+        const token=user.getJwtToken();
+        res.status(201).json({
+            success:true,
+            user,
+            token
+        })
+    } catch (error) {
+        if (error.code === 11000) {
+            return res.status(400).json({
+                success: false,
+                message:"Phone Number already in use",
+            });
+        }
+        res.status(500).json({
+            success: false,
+            message: error,
+        });
+    }
+}

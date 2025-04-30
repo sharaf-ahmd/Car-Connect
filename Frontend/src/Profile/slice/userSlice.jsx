@@ -287,6 +287,72 @@ const authSlice=createSlice({
                 isUserUpdated : false
             }
         },
+        mechanicRegisterRequest(state,action){
+            return{
+                ...state,
+                loading:true
+            }
+        },
+        mechanicRegisterSuccess(state, action){
+            return {
+                ...state,
+                loading: false,
+                isAuthenticated:true,
+                user: action.payload.user
+                
+            }
+        },
+        mechanicRegisterFail(state, action){
+            return {
+                ...state,
+                loading: false,
+                error:  action.payload
+            }
+        },
+        towingRegisterRequest(state,action){
+            return{
+                ...state,
+                loading:true
+            }
+        },
+        towingRegisterSuccess(state, action){
+            return {
+                ...state,
+                loading: false,
+                isAuthenticated:true,
+                user: action.payload.user
+                
+            }
+        },
+        towingRegisterFail(state, action){
+            return {
+                ...state,
+                loading: false,
+                error:  action.payload
+            }
+        },
+        washRegisterRequest(state,action){
+            return{
+                ...state,
+                loading:true
+            }
+        },
+        washRegisterSuccess(state, action){
+            return {
+                ...state,
+                loading: false,
+                isAuthenticated:true,
+                user: action.payload.user
+                
+            }
+        },
+        washRegisterFail(state, action){
+            return {
+                ...state,
+                loading: false,
+                error:  action.payload
+            }
+        },
         
     }
 })
@@ -331,6 +397,15 @@ export const{
     deleteUserFail,
     deleteUserRequest,
     deleteUserSuccess,
+    mechanicRegisterFail,
+    mechanicRegisterRequest,
+    mechanicRegisterSuccess,
+    towingRegisterFail,
+    towingRegisterRequest,
+    towingRegisterSuccess,
+    washRegisterFail,
+    washRegisterRequest,
+    washRegisterSuccess,
 
 }=actions;
 export default reducer;

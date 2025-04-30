@@ -8,6 +8,9 @@ import UserRegister from './Profile/UserRegister.jsx'
 import SupplierRegister from './Profile/SupplierRegister.jsx'
 import './App.css'
 import { ToastContainer } from 'react-toastify'
+import MechanicRegister from './Profile/MechanicRegister.jsx'
+import CarWashRegister from './Profile/CarWashRegister.jsx'
+import TowingRegister from './Profile/TowingRegister.jsx'
 
 
 
@@ -42,6 +45,7 @@ import UpdatePassword from './Profile/UpdatePassword.jsx'
 import ForgotPassword from './Profile/ForgotPassword.jsx'
 import ResetPassword from './Profile/ResetPassword.jsx'
 import UserList from './Profile/UserList.jsx'
+
 
 
 import ViewServices from './CarRepair/pages/viewServices.jsx'
@@ -152,6 +156,9 @@ function App() {
           <Route path="/myprofile" element={<Profile/>}/>
           <Route path="/user/register" element={<UserRegister/>}/>
           <Route path="/supplier/register" element={<SupplierRegister/>}/>
+          <Route path="/mechanic/register" element={<MechanicRegister/>}/>
+          <Route path="/towing/register" element={<TowingRegister/>}/>
+          <Route path="/wash/register" element={<CarWashRegister/>}/>
           <Route path="/update/password" element={<ProtectedRoute><UpdatePassword/></ProtectedRoute>}/>
           <Route path="/forgot/password" element={<ForgotPassword/>}/>
           <Route path="/password/reset/:token" element={<ResetPassword/>}/>
