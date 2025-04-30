@@ -7,11 +7,14 @@ const {registerUser,
     updateProfile,
     changePassword,
     forgotPassword,
-    resetPassword
-    ,deleteUser,
+    resetPassword,
+    deleteUser,
     updateUser,
     getUser,
-    getAllUsers
+    getAllUsers,
+    registerMechanic,
+    registercarwash,
+    registertowing
     
 }=require('../../controllers/ProfileController/profileController.js')
 const router=express.Router();
@@ -19,6 +22,9 @@ const {isAuthenticatedUser,authorizeRoles}=require('../../middlewares/ProfileMid
 
 router.route('/api/register').post(registerUser);
 router.route('/api/register/supplier').post(registerSupplier);
+router.route('/api/register/mechanic').post(registerMechanic);
+router.route('/api/register/carwash').post(registercarwash);
+router.route('/api/register/towing').post(registertowing);
 router.route('/api/login').post(loginUser);
 router.route('/api/logout').get(logoutUser);
 router.route('/api/myprofile').get(isAuthenticatedUser,getUserProfile);
