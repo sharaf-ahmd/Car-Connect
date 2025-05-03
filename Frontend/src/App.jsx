@@ -64,6 +64,7 @@ import Return from './CarRepair/pages/Return'
 import SuccessPAge from './CarRepair/pages/Success'
 import Inquiries from './CarRepair/pages/Inquiry.jsx'
 import AdminInquiries from './CarRepair/pages/AdminInquiry.jsx'
+import AllBookings from './CarRepair/pages/AllBookings.jsx'
 
 
 import HomePage from './Towing/pages/HomePage.jsx'
@@ -112,7 +113,7 @@ function App() {
          <Route path="/success" element={<ProtectedRoute><SuccessPAge /></ProtectedRoute>} />
          <Route path="/inquiries" element={<ProtectedRoute><Inquiries /></ProtectedRoute>} />
          <Route path="/admin/inquiries" element={<ProtectedRoute><AdminInquiries /></ProtectedRoute>} />
-
+         <Route path="/allbookings" element={<ProtectedRoute><AllBookings /></ProtectedRoute>} />
         
           
         </Routes>
