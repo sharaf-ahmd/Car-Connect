@@ -2,6 +2,7 @@ import React from 'react';
 import image1 from '../assets/1.png';
 import image2 from '../assets/1.avif';
 import image4 from '../assets/2.avif';
+import image3 from '../assets/sched.avif'
 import logout from '../assets/lg.png';
 import Nav from '../components/Navbar'
 import { Link } from 'react-router-dom';
@@ -28,6 +29,13 @@ const MechanicDash = () => {
        buttonText: 'Add Now',
       image: image4,
       to: '/admin/inquiries'
+    },
+    {
+      title: 'Manage Bookings',
+      description: 'Manage your inquiries effortlessy, to improve customer satisfaction.',
+      buttonText: 'view Now',
+      image: image3,
+      to: '/allbookings',
     },
    
   ];

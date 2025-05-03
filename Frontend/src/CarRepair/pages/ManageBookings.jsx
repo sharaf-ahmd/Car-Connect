@@ -50,6 +50,7 @@ const ManageBookings = () => {
             <th style={styles.th}>Time</th>
             <th style={styles.th}>Price</th>
             <th style={styles.th}>Location</th>
+            <th style={styles.th}>Status</th>
             <th style={styles.th}>Actions</th>
           </tr>
         </thead>
@@ -62,6 +63,7 @@ const ManageBookings = () => {
               <td style={styles.td}>{booking.time}</td>
               <td style={styles.td}>{booking.location}</td>
               <td style={styles.td}>{booking.price}</td>
+              <td style={styles.td}>{booking.status}</td>
               <td style={styles.td}>
                 <button
                   style={{ ...styles.button, backgroundColor: '#c62a36' }}
