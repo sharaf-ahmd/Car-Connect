@@ -19,6 +19,16 @@ exports.getBooking = async (req, res) => {
   }
 
 }
+exports.getBookings = async (req, res) => {
+
+  try {
+    const bookings = await Booking.find({});
+    res.status(200).json({ success: true, data: bookings });
+  } catch (error) {
+    console.error("Error fetching bookings:", error);
+    res.status(500).json({ success: false, message: "Error fetching bookings" });
+  }
+};
   
 exports.createbooking = async (req, res) => {
     const booking = req.body;
