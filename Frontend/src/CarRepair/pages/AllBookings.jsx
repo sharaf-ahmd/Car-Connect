@@ -4,11 +4,12 @@ import React, { useEffect } from 'react';
  import 'react-toastify/dist/ReactToastify.css';
  
  const AllBookings = () => {
-      const{ fetchBooking, bookings, UpdateBooking }=useBookingStore();
+  
+      const{ fetchBookings, bookings, UpdateBooking }=useBookingStore();
  
    useEffect(() => {
-     fetchBooking(true); 
-   }, [fetchBooking]);
+     fetchBookings(true); 
+   }, [fetchBookings]);
    
    const formatDate = (date) => {
      return new Date(date).toISOString().split("T")[0];
@@ -18,7 +19,7 @@ import React, { useEffect } from 'react';
      const { success } = await UpdateBooking(id, { status });
      if (success) {
        toast.success(`Booking ${status.toLowerCase()}ed successfully!`);
-       fetchBooking(); 
+       fetchBookings(true); 
      } else {
        toast.error(`Failed to ${status.toLowerCase()} booking`);
      }
@@ -95,6 +96,7 @@ import React, { useEffect } from 'react';
    },
    tr: {
      borderBottom: '1px solid #ddd',
+     color:'white'
    },
    td: {
      padding: '10px',

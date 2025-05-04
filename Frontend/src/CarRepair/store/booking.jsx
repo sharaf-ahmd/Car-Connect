@@ -31,6 +31,20 @@ export const useBookingStore = create((set) => ({
             return { success: false, message: error.message };
         }
     },
+    fetchBookings: async () => {
+        try {
+          const res = await fetch("/api/bookings");
+          const data = await res.json();
+      
+          if (res.ok && data.success) {
+            set({ bookings: data.data });
+          } else {
+            console.error("Failed to fetch bookings:", data.message || res.statusText);
+          }
+        } catch (error) {
+          console.error("Error fetching bookings:", error);
+        }
+      },
 
     fetchBooking: async (email) => {
         
