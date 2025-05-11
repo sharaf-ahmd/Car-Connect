@@ -4,10 +4,11 @@ import React, { useEffect } from 'react';
 import TowingServiceCard from '../components/TowingServiceCArd';
 import styles from './homePage.module.css'; // Import custom CSS file
 import Nav from '../components/Navbar.jsx'
+import { useSelector } from 'react-redux'
 
 const HomePage = () => {
   const { fetchTowingServices, towingServices } = useTowingServiceStore();
-
+const {user}=useSelector(state=>state.authState)
   const navigate = useNavigate();
 
   const handleRedirectToUserTowingHome = () => {
@@ -33,18 +34,20 @@ const HomePage = () => {
       </button>
 
       {/* Show Loading if Data is Empty */}
+
       {towingServices.length === 0 ? (
-        <p className={styles.loadingText}>Loading services...</p>
-      ) : (
-        <div className={styles.serviceGrid}>
-          {towingServices.map((towingService, index) => (
-            <TowingServiceCard 
-              key={towingService.id || index} 
-              towingService={towingService} 
-            />
-          ))}
-        </div>
-      )}
+  <p className={styles.loadingText}>Loading services...</p>
+) : user.role === 'towing' ? (
+  <div className={styles.serviceGrid}>
+    {towingServices.map((towingService, index) => (
+      <TowingServiceCard
+        key={towingService.id || index}
+        towingService={towingService}
+      />
+    ))}
+  </div>
+) : null}
+
 
       {/* "No Services Found" Message (Only if Data Loaded and Empty) */}
       {towingServices.length === 0 && (
