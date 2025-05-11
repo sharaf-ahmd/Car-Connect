@@ -71,6 +71,10 @@ import HomePage from './Towing/pages/HomePage.jsx'
 import CreateTowing from './Towing/pages/CreatePage.jsx'
 import UserTowingHome from './Towing/pages/UserTowingHome.jsx'
 import UserTowingForm from './Towing/pages/UserTowingForm.jsx'
+import UserHistory from './Towing/pages/HistoryPage.jsx'
+import CheckoutFormYassien from './Towing/pages/CheckoutForm.jsx'
+import PaymentSuccess from './Towing/pages/success.jsx'
+
 
 import axios from 'axios'
 
@@ -172,6 +176,9 @@ function App() {
           <Route path="/ct" element={<ProtectedRoute><CreateTowing/></ProtectedRoute>}/>
           <Route path="/utf/:id" element={<ProtectedRoute><UserTowingForm/></ProtectedRoute>}/>
           <Route path="/uth" element={<ProtectedRoute><UserTowingHome/></ProtectedRoute>}/>
+          <Route path="/history" element={<ProtectedRoute><UserHistory /></ProtectedRoute>} />
+        <Route path="/checkout" element={<ProtectedRoute><CheckoutForm /></ProtectedRoute>} />
+        <Route path="/success" element={<ProtectedRoute><PaymentSuccess /></ProtectedRoute>} />
         </Routes>
         <Footer />
       </HelmetProvider>

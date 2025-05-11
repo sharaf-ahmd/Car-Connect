@@ -11,11 +11,17 @@ const payment=require('./routes/MarketRoutes/paymentRoutes.js')
 
 const repairSharaf=require('./routes/CarRepairRoutes/Service.route.js')
 const bookingsharaf=require('./routes/CarRepairRoutes/Booking.route.js')
-const yassientowing=require('./routes/TowingRoutes/towing_service.route.js')
-const yassienuserDetail=require('./routes/TowingRoutes/userDetail.route.js')
 const sharafcheckout=require('./routes/CarRepairRoutes/checkout.routes.js')
 const sharafInquiry=require('./routes/CarRepairRoutes/inquiry.routes.js')
 const sharafAdminInquiry=require('./routes/CarRepairRoutes/admininq.routes.js')
+
+
+const yassientowing=require('./routes/TowingRoutes/towing_service.route.js')
+const yassienuserDetail=require('./routes/TowingRoutes/userDetail.route.js')
+const yassiencheckout=require('./routes/TowingRoutes/checkout.routes.js')
+const yassienmap=require('./routes/TowingRoutes/maps.router.js')
+
+
 app.use(cors({
     origin: 'http://localhost:5173',
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
@@ -33,8 +39,12 @@ app.use('/',order);
 app.use('/',payment);
 app.use('/',repairSharaf);
 app.use('/',bookingsharaf);
+
 app.use('/',yassientowing);
 app.use('/',yassienuserDetail);
+app.use('/',yassiencheckout);
+app.use('/',yassienmap);
+
 app.use('/',sharafcheckout)
 app.use('/',sharafAdminInquiry)
 app.use('/',sharafInquiry)
