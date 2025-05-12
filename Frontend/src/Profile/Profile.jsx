@@ -9,6 +9,7 @@ const Profile = () => {
     <div className="profile">
         <p className="profileDetails">Name : {user.name}</p>
         <p className="profileDetails">Phone no : {user.phoneNo}</p>
+        <p className="profileDetails">Email : {user.email}</p>
         <p className="profileDetails">Joined : {String(user.createdAt).substring(0,10)}</p>
         <Link to="/update/profile"><p className="profilebutton">Edit Profile</p></Link>
         <Link to="/update/password"><p className="profilebutton">Change Password</p></Link>

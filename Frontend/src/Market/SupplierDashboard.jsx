@@ -41,11 +41,7 @@ const SupplierDashboard = () => {
             <Link className="service_list" to="/supplier/spareparts/orders">
             <span className="no">Orders</span> <br/>
              
-            <p className="quote">
-              
-              10 orders
-          
-              </p></Link>
+            </Link>
             </div>
         </div>
         
