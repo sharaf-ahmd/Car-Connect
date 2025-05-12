@@ -116,8 +116,7 @@ const Home = () => {
         <img src="/MarketImages/spare.jpg" alt="" style={{width:"400px",borderRadius:"6px"}}/>
         <div className="regseller" style={{marginLeft:"70px",marginTop:"20px"}}>
         <p style={{textAlign:"center",marginTop:"20px",fontSize:"18px"}}>Are you a spare parts seller looking to expand your reach? Partner with CarConnect and 
-          get your products in front of thousands of potential customers! Our platform makes it easy to list and 
-          manage your products while offering support to help you succeed.</p>
+          get your products in front of thousands of potential customers</p>
         
         <Link to="/supplier/register"><p class="schedule1">Become a seller.</p></Link>
         </div>
@@ -128,11 +127,10 @@ const Home = () => {
       <div className="hero">
         
       <div class="hero1" style={{display:"flex",width:"100%",paddingLeft:"200px"}}>
-        <img src="/MarketImages/spare.jpg" alt="" style={{width:"400px",borderRadius:"6px"}}/>
+        <img src="/MarketImages/repair.jpeg" alt="" style={{width:"400px",borderRadius:"6px"}}/>
         <div className="regseller" style={{marginLeft:"70px",marginTop:"20px"}}>
-        <p style={{textAlign:"center",marginTop:"20px",fontSize:"18px"}}>Are you a spare parts seller looking to expand your reach? Partner with CarConnect and 
-          get your products in front of thousands of potential customers! Our platform makes it easy to list and 
-          manage your products while offering support to help you succeed.</p>
+        <p style={{textAlign:"center",marginTop:"20px",fontSize:"18px"}}>Are you a skilled mechanic looking to grow your customer base? Partner with CarConnect and connect with thousands of vehicle owners who need your expertise!
+</p>
         
         <Link to="/mechanic/register"><p class="schedule1">Mechanic Register.</p></Link>
         </div>
@@ -143,11 +141,9 @@ const Home = () => {
       <div className="hero">
         
       <div class="hero1" style={{display:"flex",width:"100%",paddingLeft:"200px"}}>
-        <img src="/MarketImages/spare.jpg" alt="" style={{width:"400px",borderRadius:"6px"}}/>
+        <img src="/MarketImages/wash.jpeg" alt="" style={{width:"400px",borderRadius:"6px"}}/>
         <div className="regseller" style={{marginLeft:"70px",marginTop:"20px"}}>
-        <p style={{textAlign:"center",marginTop:"20px",fontSize:"18px"}}>Are you a spare parts seller looking to expand your reach? Partner with CarConnect and 
-          get your products in front of thousands of potential customers! Our platform makes it easy to list and 
-          manage your products while offering support to help you succeed.</p>
+        <p style={{textAlign:"center",marginTop:"20px",fontSize:"18px"}}>Are you a car wash provider looking to attract more customers? Partner with CarConnect and showcase your services to thousands of car owners nearby!</p>
         
         <Link to="/towing/register"><p class="schedule1">Towing service provider Register.</p></Link>
         </div>
@@ -158,11 +154,9 @@ const Home = () => {
       <div className="hero">
         
       <div class="hero1" style={{display:"flex",width:"100%",paddingLeft:"200px"}}>
-        <img src="/MarketImages/spare.jpg" alt="" style={{width:"400px",borderRadius:"6px"}}/>
+        <img src="/MarketImages/towing.jpeg" alt="" style={{width:"400px",borderRadius:"6px"}}/>
         <div className="regseller" style={{marginLeft:"70px",marginTop:"20px"}}>
-        <p style={{textAlign:"center",marginTop:"20px",fontSize:"18px"}}>Are you a spare parts seller looking to expand your reach? Partner with CarConnect and 
-          get your products in front of thousands of potential customers! Our platform makes it easy to list and 
-          manage your products while offering support to help you succeed.</p>
+        <p style={{textAlign:"center",marginTop:"20px",fontSize:"18px"}}>Are you a towing service provider looking to reach more customers? Partner with CarConnect and get discovered by thousands of drivers in need of reliable roadside assistance!</p>
         
         <Link to="/wash/register"><p class="schedule1">Car Wash Register.</p></Link>
         </div>

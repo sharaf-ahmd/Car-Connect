@@ -41,14 +41,10 @@ const AdminDAshboard = () => {
             
           </div>
           <div className="col1_service">
-            <Link className="service_list" to="/admin/supplier/list">
-            <span className="no">Supplier</span> <br/>
+            <Link className="service_list" to="/mech/dash">
+            <span className="no">Mechanic Dashboard</span> <br/>
              
-            <p className="quote">
-              
-              10 supplier
-          
-              </p></Link>
+            </Link>
             </div>
         </div>
 
@@ -65,7 +61,7 @@ const AdminDAshboard = () => {
             </p></Link>
           </div>
           <div className="col1_service">
-            <a className="service_list" href="a.hml">
+            <a className="service_list" href="#">
             <span className="no"> Products </span> <br/>
            
             <p className="quote">
@@ -75,7 +71,7 @@ const AdminDAshboard = () => {
             
           </div>
           <div className="col1_service">
-            <a className="service_list" href="a.hml">
+            <a className="service_list" href="#">
             <span className="no">Orders</span> <br/>
              
             <p className="quote">
