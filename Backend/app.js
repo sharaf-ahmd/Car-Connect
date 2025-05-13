@@ -21,6 +21,10 @@ const yassienuserDetail=require('./routes/TowingRoutes/userDetail.route.js')
 const yassiencheckout=require('./routes/TowingRoutes/checkout.routes.js')
 const yassienmap=require('./routes/TowingRoutes/maps.router.js')
 
+const ahamedBookings=require('./routes/CarWashRoutes/booking.js')
+const ahamedservice=require('./routes/CarWashRoutes/service.js')
+
+
 
 app.use(cors({
     origin: 'http://localhost:5173',
@@ -48,4 +52,6 @@ app.use('/',yassienmap);
 app.use('/',sharafcheckout)
 app.use('/',sharafAdminInquiry)
 app.use('/',sharafInquiry)
+app.use('/',ahamedBookings)
+app.use('/',ahamedservice)
 module.exports=app;
