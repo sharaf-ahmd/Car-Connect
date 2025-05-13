@@ -6,6 +6,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import {Link} from 'react-router-dom'
 import {logout} from '../Profile/actions/userActions'
 import './header.css'
+
+
 const Header = () => {
   const {isAuthenticated,user}=useSelector(state=>state.authState)
     const dispatch=useDispatch()
