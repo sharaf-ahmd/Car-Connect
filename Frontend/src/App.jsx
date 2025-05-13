@@ -75,6 +75,9 @@ import UserHistory from './Towing/pages/HistoryPage.jsx'
 import CheckoutFormYassien from './Towing/pages/CheckoutForm.jsx'
 import PaymentSuccess from './Towing/pages/success.jsx'
 
+import ServiceDetail from './CarWash/components/services/ServiceDetail.jsx';
+import ServiceSearch from './CarWash/components/services/ServiceSearch.jsx';
+import HomeAhamed from './CarWash/components/Home.jsx';
 
 import axios from 'axios'
 
@@ -125,6 +128,9 @@ function App() {
 
         <Routes>
           {/* CarWash routes */}
+          <Route path='/home/ahamed' element={<ProtectedRoute><HomeAhamed /></ProtectedRoute>} />
+          <Route path='/search/service/:keyword' element={<ProtectedRoute><ServiceSearch/></ProtectedRoute> } />
+          <Route path='/service/:id' element={<ProtectedRoute><ServiceDetail /></ProtectedRoute>} />
         </Routes>
 
         <Routes>

@@ -55,7 +55,7 @@ const Home = () => {
             </p></Link>
           </div>
           <div className="col1_service">
-            <Link className="service_list" to="/">
+            <Link className="service_list" to="/home/ahamed">
             <span className="no">02</span> <br/>
             Car Wash <br/>
             <p className="quote">
