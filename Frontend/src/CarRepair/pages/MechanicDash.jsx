@@ -26,7 +26,7 @@ const MechanicDash = () => {
     {
       title: 'Manage inquires',
        description: 'Manage your inquiries effortlessy, to improve customer satisfaction.',
-       buttonText: 'Add Now',
+       buttonText: 'View now',
       image: image4,
       to: '/admin/inquiries'
     },

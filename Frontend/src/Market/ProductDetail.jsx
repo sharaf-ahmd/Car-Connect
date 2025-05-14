@@ -7,6 +7,7 @@ import { toast } from "react-toastify";
 import { addCartItem } from './actions/cartActions';
 import { FaShoppingCart } from "react-icons/fa";
 import { Link } from 'react-router-dom'
+import BackButton from '../CarRepair/components/BackButton'
 
 export default function ProductDetail(){
     const {product,loading}=useSelector((state)=>state.productState)
@@ -34,13 +35,16 @@ export default function ProductDetail(){
     <Fragment>
         {loading ? <></> :<Fragment>
     <div className='container1'>
+      <BackButton/>
       <div className="productdetail">
+        
             <div className="image">
+              
               <img src={product?.images?.[0]?.image } className="productDetailImg"/>
             </div>
             <div className="productdetails">
               <p className="pname">{product.name}</p>
-             
+              <p className="pname">{product.description}</p>
               <p className="price">{product.price}</p>
               <p className="pricedis">{product.price}</p>
               <div className="addtocart">

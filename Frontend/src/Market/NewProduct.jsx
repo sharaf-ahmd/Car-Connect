@@ -11,6 +11,7 @@ const NewProduct = () => {
     const [name,setName]=useState("");
     const[price,setPrice]=useState("");
     const[category,setCategory]=useState("");
+    const [description, setDescription] = useState("");
     const[stock,setStock]=useState("");
     const[images,setImages]=useState([]);
     const[imagesPreview,setImagesPreview]=useState([]);
@@ -61,6 +62,7 @@ const NewProduct = () => {
         formData.append('price',price);
         formData.append('category',category);
         formData.append('stock',stock);
+        formData.append('description' , description);
         formData.append('user',user?._id);
         images.forEach(image=>{
             formData.append('images',image);
@@ -76,7 +78,7 @@ const NewProduct = () => {
                   
             onOpen: () => dispatch(clearProductCreated())
         })
-        navigate('/')
+        navigate('/admin/dashboard')
         return;
         }
         if(error)  {
@@ -103,6 +105,8 @@ const NewProduct = () => {
         <input type="number" id='price' onChange={e => setPrice(e.target.value)} value={price} required placeholder="Price"/><br/><br/>
         <label className="label"  htmlFor="stock">Stock</label><br/>
         <input type="number" id="stock" onChange={e => setStock(e.target.value)} value={stock} required placeholder="Stock"/><br/><br/>
+        <label className="label"  htmlFor="description">Description</label><br/>
+        <input type="text" id="description" onChange={e => setDescription(e.target.value)} value={description} required placeholder="Description"/><br/><br/>
         <label className="label"  htmlFor="category">Select category</label><br/>
         
         <select onChange={e => setCategory(e.target.value)}  className="category-select" name="select" id="category">

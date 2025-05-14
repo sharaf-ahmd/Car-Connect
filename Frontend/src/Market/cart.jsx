@@ -4,6 +4,8 @@ import {useSelector,useDispatch} from 'react-redux'
 import {Link, useNavigate} from 'react-router-dom'
 import '../Profile/Login.css'
 
+import BackButton from '../CarRepair/components/BackButton'
+
 import { decreaseCartItemQty,increaseCartItemQty,removeItemFromCart } from "./slice/cartSlice.jsx"
 
 export default function cart(){
@@ -28,6 +30,7 @@ export default function cart(){
 
   return (
     <div className='container1'>
+      <BackButton/>
       
 <div className="cartItem">
     <div className="cartitems">

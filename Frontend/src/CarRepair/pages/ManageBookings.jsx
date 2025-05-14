@@ -6,6 +6,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import Nav from '../components/Navbar'
 import { color } from 'framer-motion';
 import { useSelector } from 'react-redux';
+import BackButton from '../components/BackButton'
 
 const ManageBookings = () => {
   const { user } = useSelector(state => state.authState);
@@ -41,6 +42,7 @@ const ManageBookings = () => {
   return (
     <div className="">
     <div style={styles.container}>
+      <BackButton />
       <table style={styles.table}>
         <thead style={styles.thead}>
           <tr>
