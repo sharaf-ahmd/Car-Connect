@@ -4,6 +4,7 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from 'react-router-dom';
 import { color } from 'framer-motion';
+import BackButton from '../components/BackButton'
 
 
 
@@ -86,6 +87,7 @@ const CreatePage = () => {
   return (
     <div className="">
     <div style={style.container}>
+      <BackButton />
       <h1 style={style.heading}>Create New Service</h1>
       <div style={style.formContainer}>
         <div style={style.inputGroup}>

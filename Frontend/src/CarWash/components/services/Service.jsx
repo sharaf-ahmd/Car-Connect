@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import '../css.module.css'
-
+import { Fragment, useEffect } from "react";
 export default function Service({ service, col }) {
     useEffect(() => {
       const link = document.createElement('link');

@@ -2,10 +2,15 @@ import React, { useEffect } from 'react';
  import { toast } from 'react-toastify';
  import { useBookingStore } from '../store/booking';
  import 'react-toastify/dist/ReactToastify.css';
+ import jsPDF from 'jspdf';
+import autoTable from 'jspdf-autotable';
+import { useNavigate } from 'react-router-dom';  
+import BackButton from '../components/BackButton';
  
  const AllBookings = () => {
   
-      const{ fetchBookings, bookings, UpdateBooking }=useBookingStore();
+       const { fetchBookings, bookings, UpdateBooking } = useBookingStore();
+  const navigate = useNavigate();  
  
    useEffect(() => {
      fetchBookings(true); 
@@ -24,10 +29,62 @@ import React, { useEffect } from 'react';
        toast.error(`Failed to ${status.toLowerCase()} booking`);
      }
    };
+   const exportPDF = () => {
+    const doc = new jsPDF();
+    doc.text("Bookings Report", 14, 15);
+
+    const tableColumn = ["Email", "Service", "Shop", "Date", "Time", "Location", "Status"];
+    const tableRows = bookings.map(b => [
+      b.email,
+      b.service,
+      b.vendor,
+      formatDate(b.date),
+      b.time,
+      b.location,
+      b.status || 'Pending',
+    ]);
+
+    autoTable(doc, {
+      startY: 20,
+      head: [tableColumn],
+      body: tableRows,
+    });
+
+    doc.save('bookings.pdf');
+  };
+
+  const exportCSV = () => {
+    const csvRows = [
+      ["Email", "Service", "Shop", "Date", "Time", "Location", "Status"],
+      ...bookings.map(b => [
+        b.email,
+        b.service,
+        b.vendor,
+        formatDate(b.date),
+        b.time,
+        b.location,
+        b.status || 'Pending'
+      ])
+    ];
+
+    const csvContent = csvRows.map(e => e.join(",")).join("\n");
+    const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = url;
+    link.setAttribute("download", "bookings.csv");
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
  
    return (
      <div style={styles.container}>
-     
+     <BackButton />
+     <div style={styles.buttonContainer}>
+        <button style={{ ...styles.button, backgroundColor: '#2196F3' }} onClick={exportPDF}>Export PDF</button>
+        <button style={{ ...styles.button, backgroundColor: '#FF9800' }} onClick={exportCSV}>Export CSV</button>
+      </div>
        <table style={styles.table}>
          <thead style={styles.thead}>
            <tr>
@@ -69,6 +126,7 @@ import React, { useEffect } from 'react';
            ))}
          </tbody>
        </table>
+       
      </div>
    );
  };
@@ -111,6 +169,12 @@ import React, { useEffect } from 'react';
      borderRadius: '5px',
      cursor: 'pointer',
    },
+   buttonContainer: {
+  display: 'flex',
+  justifyContent: 'flex-end',
+  marginBottom: '10px',
+  gap: '10px',
+}
  };
  
  export default AllBookings;

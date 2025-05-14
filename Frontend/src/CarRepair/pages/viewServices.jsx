@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useServiceStore } from '../store/service';
 import ServiceList from '../components/ServiceList';
 import ServiceSearch from '../components/ServiceSearch';
-
+import BackButton from '../components/BackButton'
 
 const styles = {
     dashboardContainer: {
@@ -43,6 +43,7 @@ const UserDash = () => {
  
     return (
         <div style={styles.dashboardContainer}>
+            <BackButton />
             <div style={styles.dashboardContent}>
                 <ServiceSearch
                     searchQuery={searchQuery}

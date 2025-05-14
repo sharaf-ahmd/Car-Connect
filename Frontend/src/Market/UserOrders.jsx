@@ -70,6 +70,7 @@ const userOrders = () => {
   return (
     <div className='container1'>
         <div className="register">
+            
         <Fragment>
                  
                     <MDBDataTable

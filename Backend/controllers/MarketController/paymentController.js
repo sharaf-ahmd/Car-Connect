@@ -21,7 +21,7 @@ exports.otp = async (req, res) => {
             service: 'gmail',
             auth: {
                 user: "rifdhi9@gmail.com",
-                pass: "kkew ghao rlnt axgi",
+                pass: "pass",
             }
         });
 

@@ -3,6 +3,7 @@ import { useInquiryStore } from '../store/inquiry';
 import { toast } from 'react-toastify';
 import { useSelector } from 'react-redux';
 import 'react-toastify/dist/ReactToastify.css';
+import BackButton from '../components/BackButton'
 
 const InquiriesPage = () => {
   const {user}=useSelector(state => state.authState);
@@ -129,6 +130,7 @@ const InquiriesPage = () => {
 
   return (
     <div style={style.container}>
+      <BackButton />
       <h1 style={style.heading}>Submit Inquiry</h1>
       {statusMessage && <p style={style.status}>{statusMessage}</p>}
       <form style={style.formContainer} onSubmit={handleSubmit}>
