@@ -7,6 +7,7 @@ import '../components/header.css'
 import { Link,useLocation,useNavigate } from 'react-router-dom'
 import {login,clearAuthError} from './actions/userActions.jsx'
 
+
 const Login = () => {
   const [phoneNo,setPhoneNo]=useState("");
   const [password,setPassword]=useState("");
@@ -35,6 +36,7 @@ const Login = () => {
     <Fragment>
       <MetaData title={'Login'}/>
     <div className='container1'>
+      
       
       <div className="login">
             <p className="login-title">Login</p>
