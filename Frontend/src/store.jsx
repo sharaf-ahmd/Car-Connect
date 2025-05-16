@@ -6,6 +6,7 @@ import cartReducer from './Market/slice/cartSlice.jsx'
 import orderReducer from './Market/slice/orderSlice.jsx'
 import servicesReducer from './CarWash/slices/servicesSlice.jsx'
 import serviceReducer from './CarWash/slices/serviceSlice.jsx'
+import bookingReducer from './CarWash/slices/bookingSlice.jsx'
 
 
 const reducer=combineReducers({
@@ -16,6 +17,7 @@ const reducer=combineReducers({
     orderState:orderReducer,
     servicesState: servicesReducer,
     serviceState: serviceReducer,
+    bookingState: bookingReducer
 })
 const store=configureStore({
     reducer,

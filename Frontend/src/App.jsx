@@ -78,6 +78,15 @@ import PaymentSuccess from './Towing/pages/success.jsx'
 import ServiceDetail from './CarWash/components/services/ServiceDetail.jsx';
 import ServiceSearch from './CarWash/components/services/ServiceSearch.jsx';
 import HomeAhamed from './CarWash/components/Home.jsx';
+import BookingConfirm from './CarWash/components/booking/ConfirmBooking';
+import ConfirmBooking from './CarWash/components/booking/ConfirmBooking';
+import PaymentAhamed from './CarWash/components/booking/Payment';
+import BookingSuccess from './CarWash/components/booking/BookingSuccess';
+import UserBookings from './CarWash/components/userBooking/UserBookings';
+import BookingAhamed from './CarWash/components/booking/BookingAhamed.jsx';
+import DashboardAhamed from './CarWash/components/admin/Dashboard.jsx';
+import ServiceListAhamed from './CarWash/components/admin/ServiceList';
+import NewServiceAhamed from './CarWash/components/admin/NewService';
 
 import axios from 'axios'
 
@@ -131,6 +140,16 @@ function App() {
           <Route path='/home/ahamed' element={<ProtectedRoute><HomeAhamed /></ProtectedRoute>} />
           <Route path='/search/service/:keyword' element={<ProtectedRoute><ServiceSearch/></ProtectedRoute> } />
           <Route path='/service/:id' element={<ProtectedRoute><ServiceDetail /></ProtectedRoute>} />
+          <Route path='/book' element={<ProtectedRoute><BookingAhamed /></ProtectedRoute>}/>
+          <Route path='/booking/confirm/ahamed' element={<ProtectedRoute><ConfirmBooking /></ProtectedRoute>}/>
+          <Route path='/booking/success/ahamed' element={<ProtectedRoute><BookingSuccess /></ProtectedRoute>}/>
+        {stripeApiKey &&
+                <Route path='/payment/ahamed' element={<ProtectedRoute><Elements stripe={loadStripe(stripeApiKey)}><PaymentAhamed /></Elements></ProtectedRoute>}/>
+                }
+                 <Route path='/bookings/ahamed' element={<UserBookings />}/>
+                 <Route path='/admin/dashboard/ahamed' element={ <ProtectedRoute ><DashboardAhamed/></ProtectedRoute> } />
+                  <Route path='/admin/services/ahamed' element={ <ProtectedRoute ><ServiceListAhamed/></ProtectedRoute> } />
+                  <Route path='/admin/services/create/ahamed' element={ <ProtectedRoute ><NewServiceAhamed/></ProtectedRoute> } />
         </Routes>
 
         <Routes>

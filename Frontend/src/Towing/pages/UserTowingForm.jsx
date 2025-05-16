@@ -149,7 +149,7 @@ const TowingServiceForm = () => {
           />
         </div>
     <div className={styles.formGroup}>
-          <label className={styles.label}>Payment (Rs):</label>
+          <label className={styles.label}>Payment (USD):</label>
           <input
             type="text"
             name="payment"
