@@ -23,6 +23,7 @@ const yassienmap=require('./routes/TowingRoutes/maps.router.js')
 
 const ahamedBookings=require('./routes/CarWashRoutes/booking.js')
 const ahamedservice=require('./routes/CarWashRoutes/service.js')
+const ahamedpayment=require('./routes/CarWashRoutes/payment.js')
 
 
 
@@ -54,4 +55,5 @@ app.use('/',sharafAdminInquiry)
 app.use('/',sharafInquiry)
 app.use('/',ahamedBookings)
 app.use('/',ahamedservice)
+app.use('/',ahamedpayment)
 module.exports=app;

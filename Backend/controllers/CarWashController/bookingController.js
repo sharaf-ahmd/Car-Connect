@@ -9,34 +9,40 @@ const APIFeatures = require('../../utils/CarWashUtils/apiFeatures');
 exports.newBooking = catchAsyncError(async (req, res, next) => {
     const {
         name,
-        email,
-        contact,
-        address,
-        location,
-        station,
-        serviceMode,
-        vehicleInfo,
-        time,
-        bookServices,
-        amount,
-    } = req.body;
+  email,
+  contact,
+  address,
+  location,
+  station,
+  serviceMode,
+  vehicleInfo,
+  appointmentDate,
+  time,
+  bookServices,
+  amount,
+  paymentInfo,
+  notes,
+  paidAt
+} = req.body;
 
-    const booking = await Booking.create({
-        user: req.user.id,
-        name,
-        email,
-        contact,
-        address,
-        location,
-        station,
-        serviceMode,
-        vehicleInfo,
-        appointmentDate: Date.now(),
-        time,
-        bookServices,
-        amount,
-        paidAt: Date.now(),
-    });
+const booking = await Booking.create({
+  user: req.user.id,
+  name,
+  email,
+  contact,
+  address,
+  location,
+  station,
+  serviceMode,
+  vehicleInfo,
+  appointmentDate: new Date(appointmentDate), // ensure date format
+  time,
+  bookServices,
+  amount,
+  paymentInfo,
+  notes,
+  paidAt: paymentInfo?.status === 'succeeded' ? new Date(paidAt) : undefined
+});
 
     res.status(200).json({
         success: true,
