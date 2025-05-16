@@ -1,12 +1,19 @@
 import React from 'react';
 import { Mail, Phone, MapPin } from 'lucide-react';
 import BackButton from '../components/BackButton'
+import car from '../assets/car4.jpg'
 const styles = {
   container: {
     padding: '20px',
     maxWidth: '1200px',
     margin: '0 auto',
     textAlign: 'center',
+    backgroundImage: `url(${car})`,
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    backgroundRepeat: 'no-repeat',
+    color: 'white', 
+    minHeight: '100vh',
   },
   heading: {
     fontSize: '36px',
@@ -18,6 +25,9 @@ const styles = {
     color: 'gray',
     maxWidth: '800px',
     margin: '0 auto 30px',
+    backgroundColor: 'rgba(0,0,0,0.5)',
+    padding: '10px',
+    borderRadius: '10px',
   },
   contactGrid: {
     display: 'grid',

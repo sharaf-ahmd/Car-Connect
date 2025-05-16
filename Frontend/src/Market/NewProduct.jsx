@@ -78,7 +78,7 @@ const NewProduct = () => {
                   
             onOpen: () => dispatch(clearProductCreated())
         })
-        navigate('/admin/dashboard')
+        navigate('/supplier/dashboard')
         return;
         }
         if(error)  {

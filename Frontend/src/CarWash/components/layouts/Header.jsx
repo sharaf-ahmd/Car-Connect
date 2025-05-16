@@ -43,7 +43,7 @@ export default function Header() {
               </Dropdown.Toggle>
 
               <Dropdown.Menu>
-                 { user.role === 'admin' && <Dropdown.Item onClick={() => {navigate('admin/dashboard')}} className='text-dark'>Dashboard</Dropdown.Item> }
+                 { user.role === 'carwash' && <Dropdown.Item onClick={() => {navigate('/admin/dashboard/ahamed')}} className='text-dark'>Dashboard</Dropdown.Item> }
                     
                     <Dropdown.Item onClick={() => {navigate('/order')}} className='text-dark'>Orders</Dropdown.Item>
                     

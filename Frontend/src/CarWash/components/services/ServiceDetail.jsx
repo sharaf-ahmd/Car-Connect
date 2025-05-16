@@ -4,18 +4,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import Loader from '../layouts/Loader';
 import MetaData from "../layouts/MetaData";
+import { useNavigate } from "react-router-dom";
+import { setSelectedService } from "../../slices/bookingSlice";
 import '../css.module.css'
 
-
 export default function ServiceDetail() {
-    const { loading, service } = useSelector((state) => state.serviceState);
-    const dispatch = useDispatch();
-
-    const { id } = useParams();
-    
-    useEffect(() => {
-        dispatch(getService(id));
-    }, [id, dispatch]);
     useEffect(() => {
       const link = document.createElement('link');
       link.rel = 'stylesheet';
@@ -26,6 +19,24 @@ export default function ServiceDetail() {
         document.head.removeChild(link); // Removes Bootstrap when component unmounts
       };
     }, []);
+    const { loading, service, error } = useSelector((state) => state.serviceState);
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+
+    const { id } = useParams();
+
+    const bookNowHandler = () => {
+        dispatch(setSelectedService(service));
+        navigate("/login?redirect=book");
+    };
+    
+    useEffect(() => {
+        dispatch(getService(id));
+    }, [id, dispatch]);
+
+    if (error) {
+        return <div>Error: {error.message}</div>; // Handle the error case here
+    }
 
     return (
         <Fragment>
@@ -39,7 +50,7 @@ export default function ServiceDetail() {
                             <div className="col-12 col-lg-5 mb-4">
                                 <div id="service_image" className="text-center">
                                     <img
-                                        src={service.image}
+                                        src={service.image || '/path/to/default/image.jpg'} // Add a fallback image
                                         alt={service.name}
                                         className="img-fluid rounded shadow"
                                         style={{ maxHeight: "500px", maxWidth: "100%" }}
@@ -69,6 +80,7 @@ export default function ServiceDetail() {
                                     id="book_btn"
                                     className="btn"
                                     style={{ backgroundColor: "#dc323f", color: "#fff" }}
+                                    onClick={bookNowHandler}
                                 >
                                     Book Now
                                 </button>

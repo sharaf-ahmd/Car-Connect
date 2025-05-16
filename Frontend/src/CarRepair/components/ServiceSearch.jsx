@@ -15,7 +15,6 @@ const ServiceSearch = ({ searchQuery, setSearchQuery, selectedService, setSelect
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             className="search-input"
-            style={{width:'800px'}}
           />
         </div>
         
@@ -23,7 +22,6 @@ const ServiceSearch = ({ searchQuery, setSearchQuery, selectedService, setSelect
           value={selectedService}
           onChange={(e) => setSelectedService(e.target.value)}
           className="service-select"
-          style={{height:'45px',marginTop:'9px'}}
         >
           <option value="all">All Services</option>
           <option value="maintenance">Maintenance</option>

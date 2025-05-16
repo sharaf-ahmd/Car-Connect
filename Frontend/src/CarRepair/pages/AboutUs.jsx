@@ -5,6 +5,7 @@ import Rifky from '../assets/rifky.png';
 import ahamed from '../assets/ahamed.jpeg';
 import { color } from 'framer-motion';
 import BackButton from '../components/BackButton'
+import car from '../assets/car1.avif';
 
 
 const styles = {
@@ -12,7 +13,19 @@ const styles = {
     textAlign: 'center',
     padding: '40px',
     maxWidth: '1400px',
-    margin: 'auto'
+     margin: 'auto',
+    backgroundImage: `url(${car})`,
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    backgroundRepeat: 'no-repeat',
+    color: 'white',
+    minHeight: '100vh',
+
+  },
+  overlay: {
+    backgroundColor: 'rgba(0, 0, 0, 0.6)',
+    padding: '40px',
+    borderRadius: '20px',
   },
   section: {
     marginBottom: '40px'
@@ -42,7 +55,8 @@ const styles = {
     borderRadius: '30px',
     boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
     border: '2px solid #196662',
-    textAlign: 'center'
+    textAlign: 'center',
+     backgroundColor: 'rgba(255, 255, 255, 0.05)',
   },
   icon: {
     marginBottom: '10px'
